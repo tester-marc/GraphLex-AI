@@ -1,0 +1,9 @@
+{
+  "extractor": "pymupdf",
+  "source_id": "gdpr",
+  "total_pages": 117,
+  "toc_entries": 26,
+  "tables_found": 0,
+  "total_processing_time_ms": 5763.87,
+  "full_text_chars": 346443
+}

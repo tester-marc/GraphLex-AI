@@ -1,0 +1,36 @@
+{
+  "articles": [
+    {"number": "48", "title": "Transfers or disclosures not authorised by Union law", "paragraph_count": 1},
+    {"number": "44", "title": "General principle for transfers", "paragraph_count": 1},
+    {"number": "45", "title": "Transfers on the basis of an adequacy decision", "paragraph_count": 1},
+    {"number": "46", "title": "Transfers subject to appropriate safeguards", "paragraph_count": 1},
+    {"number": "49", "title": "Derogations for specific situations", "paragraph_count": 1},
+    {"number": "6", "title": "Lawfulness of processing", "paragraph_count": 1},
+    {"number": "5", "title": "Principles relating to processing of personal data", "paragraph_count": 1},
+    {"number": "3", "title": "Territorial scope", "paragraph_count": 1},
+    {"number": "28", "title": "Processor", "paragraph_count": 1}
+  ],
+  "tables": [
+    {"page": 2, "rows": 4, "cols": 3, "cells": [["Version 1.0", "2 December 2024", "Adoption of the Guidelines for public consultation"], ["Version 2.0", "4 June 2025", "Adoption of the Guidelines after public consultation"], ["Version 2.1", "20 June 2025", "Improved resolution of Annex"]]},
+    {"page": 13, "rows": 8, "cols": 2, "cells": [["Practical steps", "Description"]]}
+  ],
+  "cross_references": [
+    {"source_article": "48", "target_article": "44", "page": 5},
+    {"source_article": "48", "target_article": "6", "page": 3},
+    {"source_article": "48", "target_article": "46", "page": 3},
+    {"source_article": "48", "target_article": "49", "page": 3},
+    {"source_article": "48", "target_article": "6", "page": 10},
+    {"source_article": "48", "target_article": "45", "page": 11},
+    {"source_article": "48", "target_article": "6", "page": 9},
+    {"source_article": "48", "target_article": "6", "page": 10},
+    {"source_article": "48", "target_article": "3", "page": 6},
+    {"source_article": "48", "target_article": "28", "page": 7}
+  ],
+  "footnotes": [
+    {"page": 5, "marker": "1", "text": "References to \"EU\" and \"Member States\" made throughout this document should be understood as references to \"EEA\" and \"EEA Member States\" respectively."},
+    {"page": 5, "marker": "2", "text": "Article 48 refers to \"transfers or disclosures\". Therefore, this will be the terminology used throughout the text of these guidelines"},
+    {"page": 6, "marker": "3", "text": "For the purposes of law enforcement and national security, the exchange of data takes place usually between the authorities involved, so Article 48 is not applicable"},
+    {"page": 6, "marker": "4", "text": "For example, when it comes to cooperation with law enforcement authorities of a third country, criminal procedural rules of the Member State"},
+    {"page": 7, "marker": "5", "text": "As regards international agreement concluded by the Union, see CJEU Judgment Case C-327/91, French Republic v Commission, para. 27."}
+  ]
+}

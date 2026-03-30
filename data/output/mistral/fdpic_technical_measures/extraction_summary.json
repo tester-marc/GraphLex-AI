@@ -1,0 +1,9 @@
+{
+  "extractor": "mistral",
+  "source_id": "fdpic_technical_measures",
+  "total_pages": 50,
+  "toc_entries": 0,
+  "tables_found": 5,
+  "total_processing_time_ms": 4208.58,
+  "full_text_chars": 115333
+}

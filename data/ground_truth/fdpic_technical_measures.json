@@ -1,0 +1,40 @@
+{
+  "articles": [
+    {"number": "7", "title": "Data protection by design and by default (FADP)", "paragraph_count": 1},
+    {"number": "8", "title": "Data security (FADP)", "paragraph_count": 1},
+    {"number": "6", "title": "General principles (FADP)", "paragraph_count": 1},
+    {"number": "5", "title": "Definitions (FADP)", "paragraph_count": 1},
+    {"number": "9", "title": "Processor (FADP)", "paragraph_count": 1},
+    {"number": "10", "title": "Data protection officer (FADP)", "paragraph_count": 1},
+    {"number": "12", "title": "Record of processing activities (FADP)", "paragraph_count": 1},
+    {"number": "16", "title": "Disclosure abroad (FADP)", "paragraph_count": 1},
+    {"number": "19", "title": "Duty to provide information (FADP)", "paragraph_count": 1},
+    {"number": "22", "title": "Data protection impact assessment (FADP)", "paragraph_count": 1},
+    {"number": "24", "title": "Reporting data security breaches (FADP)", "paragraph_count": 1},
+    {"number": "25", "title": "Right of access (FADP)", "paragraph_count": 1},
+    {"number": "32", "title": "Data subject rights enforcement (FADP)", "paragraph_count": 1}
+  ],
+  "tables": [
+    {"page": 8, "rows": 7, "cols": 9, "cells": [["Standards", "FADP", "DPO", "GDPR"]]},
+    {"page": 39, "rows": 5, "cols": 5, "cells": [["Protection of data", "Confidentiality"]]}
+  ],
+  "cross_references": [
+    {"source_article": "7", "target_article": "25", "page": 23},
+    {"source_article": "8", "target_article": "32", "page": 29},
+    {"source_article": "22", "target_article": "35", "page": 9},
+    {"source_article": "6", "target_article": "5", "page": 23},
+    {"source_article": "12", "target_article": "30", "page": 11},
+    {"source_article": "6", "target_article": "17", "page": 33},
+    {"source_article": "19", "target_article": "13", "page": 14},
+    {"source_article": "16", "target_article": "46", "page": 47},
+    {"source_article": "24", "target_article": "33", "page": 12},
+    {"source_article": "25", "target_article": "15", "page": 16}
+  ],
+  "footnotes": [
+    {"page": 8, "marker": "1", "text": "European Data Protection Board, formerly known as the Article 29 Working Party."},
+    {"page": 8, "marker": "2", "text": "This Guide concerns the processing of personal data; the processing of other types of data is therefore not covered and may be subject to other laws not mentioned in this Guide."},
+    {"page": 9, "marker": "3", "text": "Personal data protection impact assessment (admin.ch)"},
+    {"page": 9, "marker": "4", "text": "Data protection impact assessment (FADP) | CNIL"},
+    {"page": 9, "marker": "5", "text": "Data protection impact assessments | ICO"}
+  ]
+}

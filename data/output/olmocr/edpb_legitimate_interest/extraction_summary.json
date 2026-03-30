@@ -1,0 +1,9 @@
+{
+  "extractor": "olmocr",
+  "source_id": "edpb_legitimate_interest",
+  "total_pages": 37,
+  "toc_entries": 0,
+  "tables_found": 0,
+  "total_processing_time_ms": 294350.0,
+  "full_text_chars": 141947
+}

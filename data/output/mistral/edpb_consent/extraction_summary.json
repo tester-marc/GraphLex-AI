@@ -1,0 +1,9 @@
+{
+  "extractor": "mistral",
+  "source_id": "edpb_consent",
+  "total_pages": 33,
+  "toc_entries": 0,
+  "tables_found": 1,
+  "total_processing_time_ms": 5061.59,
+  "full_text_chars": 102628
+}

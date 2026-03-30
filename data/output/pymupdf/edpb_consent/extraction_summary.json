@@ -1,0 +1,9 @@
+{
+  "extractor": "pymupdf",
+  "source_id": "edpb_consent",
+  "total_pages": 33,
+  "toc_entries": 0,
+  "tables_found": 2,
+  "total_processing_time_ms": 2161.16,
+  "full_text_chars": 109493
+}

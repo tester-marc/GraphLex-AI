@@ -1,0 +1,9 @@
+{
+  "extractor": "pymupdf",
+  "source_id": "edpb_article48",
+  "total_pages": 13,
+  "toc_entries": 7,
+  "tables_found": 2,
+  "total_processing_time_ms": 701.48,
+  "full_text_chars": 34102
+}

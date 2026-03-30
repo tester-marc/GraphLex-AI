@@ -1,0 +1,9 @@
+{
+  "extractor": "olmocr",
+  "source_id": "gdpr",
+  "total_pages": 117,
+  "toc_entries": 0,
+  "tables_found": 0,
+  "total_processing_time_ms": 658500.0,
+  "full_text_chars": 347624
+}

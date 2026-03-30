@@ -1,0 +1,62 @@
+[
+  {
+    "document": "edpb_article48",
+    "source_file": "edpb_guidelines_article48_transfers.pdf",
+    "total_pages": 13,
+    "successful_pages": 13,
+    "failed_pages": 0,
+    "total_time_seconds": 73.47,
+    "avg_time_per_page_seconds": 5.65,
+    "total_chars": 36015
+  },
+  {
+    "document": "edpb_consent",
+    "source_file": "edpb_guidelines_consent.pdf",
+    "total_pages": 33,
+    "successful_pages": 33,
+    "failed_pages": 0,
+    "total_time_seconds": 220.11,
+    "avg_time_per_page_seconds": 6.67,
+    "total_chars": 110205
+  },
+  {
+    "document": "edpb_legitimate_interest",
+    "source_file": "edpb_guidelines_legitimate_interest.pdf",
+    "total_pages": 37,
+    "successful_pages": 37,
+    "failed_pages": 0,
+    "total_time_seconds": 294.35,
+    "avg_time_per_page_seconds": 7.96,
+    "total_chars": 141875
+  },
+  {
+    "document": "fadp",
+    "source_file": "fadp_revised_2023.pdf",
+    "total_pages": 32,
+    "successful_pages": 32,
+    "failed_pages": 0,
+    "total_time_seconds": 139.79,
+    "avg_time_per_page_seconds": 4.37,
+    "total_chars": 62942
+  },
+  {
+    "document": "fdpic_technical_measures",
+    "source_file": "fdpic_guide_technical_measures.pdf",
+    "total_pages": 50,
+    "successful_pages": 50,
+    "failed_pages": 0,
+    "total_time_seconds": 281.27,
+    "avg_time_per_page_seconds": 5.63,
+    "total_chars": 131133
+  },
+  {
+    "document": "gdpr",
+    "source_file": "gdpr_full_text.pdf",
+    "total_pages": 117,
+    "successful_pages": 117,
+    "failed_pages": 0,
+    "total_time_seconds": 658.5,
+    "avg_time_per_page_seconds": 5.63,
+    "total_chars": 347392
+  }
+]

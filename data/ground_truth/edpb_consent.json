@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {"number": "4", "title": "Definition of consent", "paragraph_count": 1},
+    {"number": "6", "title": "Lawfulness of processing", "paragraph_count": 1},
+    {"number": "7", "title": "Conditions for consent", "paragraph_count": 1},
+    {"number": "8", "title": "Conditions applicable to child's consent", "paragraph_count": 1},
+    {"number": "9", "title": "Processing of special categories of personal data", "paragraph_count": 1},
+    {"number": "5", "title": "Principles relating to processing of personal data", "paragraph_count": 1},
+    {"number": "13", "title": "Information to be provided where personal data are collected from the data subject", "paragraph_count": 1},
+    {"number": "14", "title": "Information to be provided where personal data have not been obtained from the data subject", "paragraph_count": 1},
+    {"number": "17", "title": "Right to erasure", "paragraph_count": 1},
+    {"number": "20", "title": "Right to data portability", "paragraph_count": 1},
+    {"number": "21", "title": "Right to object", "paragraph_count": 1},
+    {"number": "22", "title": "Automated individual decision-making including profiling", "paragraph_count": 1},
+    {"number": "49", "title": "Derogations for specific situations", "paragraph_count": 1}
+  ],
+  "tables": [
+    {"page": 2, "rows": 3, "cols": 3, "cells": [["Version 1.1", "2020-05-04", "Consent guidelines"]]}
+  ],
+  "cross_references": [
+    {"source_article": "4", "target_article": "6", "page": 6},
+    {"source_article": "7", "target_article": "5", "page": 5},
+    {"source_article": "7", "target_article": "6", "page": 11},
+    {"source_article": "6", "target_article": "5", "page": 14},
+    {"source_article": "8", "target_article": "7", "page": 28},
+    {"source_article": "7", "target_article": "17", "page": 24},
+    {"source_article": "9", "target_article": "6", "page": 20},
+    {"source_article": "22", "target_article": "6", "page": 20},
+    {"source_article": "49", "target_article": "46", "page": 16},
+    {"source_article": "7", "target_article": "13", "page": 17}
+  ],
+  "footnotes": [
+    {"page": 4, "marker": "1", "text": "References to \"Member States\" made throughout this document should be understood as references to \"EEA Member States\"."},
+    {"page": 5, "marker": "2", "text": "Article 9 GDPR provides a list of possible exemptions to the ban on processing special categories of data."},
+    {"page": 5, "marker": "3", "text": "See also Article 29 Working Party Opinion 15/2011 on the definition of consent (WP 187), pp. 6-8"},
+    {"page": 5, "marker": "4", "text": "Most notably, Opinion 15/2011 on the definition of consent (WP 187)."},
+    {"page": 5, "marker": "5", "text": "Opinion 15/2011, page on the definition of consent (WP 187), p. 8."}
+  ]
+}

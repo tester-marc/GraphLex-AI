@@ -1,0 +1,1422 @@
+Schweizerische Eidgenossenschaft
+Confédération suisse
+Confederazione Svizzera
+Confederaziun svizra
+Federal Data Protection and Information Commissioner FDPIC
+
+# Guide to Technical and Organisational Data Protection Measures (TOM)
+
+15 January 2024
+
+2
+
+# TABLE OF CONTENTS
+
+1 Introduction...4
+1.1 Data Protection Act...4
+1.2 Definitions...5
+1.3 General principles...6
+1.4 Roles...6
+1.5 Technical and organisational measures...7
+1.6 Additional tools...7
+
+2 Data processing...9
+2.1 Impact assessment...9
+2.1.1 Obligation to carry out a DPIA...10
+2.1.2 Exception to the obligation to carry out a DPIA...10
+2.1.3 Data protection officer...10
+2.1.4 Components of a DPIA...11
+2.2 Records...11
+2.3 Reporting data breaches...12
+2.4 Data controllers abroad...13
+
+3 Rights and obligations...14
+3.1 Duty to provide information...14
+3.2 Data subjects Rights...15
+3.2.1 Right of access to personal data...16
+3.2.2 Right to data portability...17
+3.2.3 Right to personal data deletion...17
+3.2.4 Right to personal data rectification...18
+3.2.5 Right to personal data processing prohibition...18
+3.2.6 Right to personal data non-disclosure...18
+3.2.7 Right to inform of measures relating to personal data...18
+3.3 Reproducibility of procedures...19
+
+4 Federal bodies...20
+4.1 Legal basis...20
+4.2 Processing for purposes not relating to individuals...20
+4.3 Disclosure...21
+4.4 Record of processing activities...21
+4.5 Reporting a data security breach...21
+4.6 Automated individual decisions...21
+4.7 Duty to provide information...22
+4.8 Data subjects rights...22
+4.9 Logging...22
+4.10 Processing regulations...22
+
+5 Data protection...23
+
+3
+
+5.1 Protection by design and by default...23
+5.2 Pseudonymisation...24
+5.3 Anonymisation...25
+5.4 Generalisation...27
+5.5 Minimisation...27
+5.6 Randomisation...28
+5.7 Homomorphic encryption...28
+5.8 Synthetic data...28
+
+6 Infrastructure...29
+6.1 Security of premises...29
+6.2 Server room security...30
+6.3 Workplace security...30
+6.4 Using the cloud...31
+6.5 Further information...32
+
+7 Access and processing...33
+7.1 Access management...33
+7.2 Identification and authentication...33
+7.3 Access to the data...34
+7.4 Remote access...34
+7.5 Further information...35
+
+8 Life cycle of data...36
+8.1 Data input...36
+8.2 Data encryption...37
+8.3 Media security...38
+8.4 Data security...38
+8.5 Destruction of data...38
+8.6 Security and protection levels...39
+8.7 Logging...40
+8.8 Processing regulations...41
+
+9 Sharing and transmission...43
+9.1 Network security...43
+9.2 Message encryption...44
+9.3 Message signature...45
+9.4 Transmission of data carriers...46
+9.5 Transfer logging...46
+9.6 Disclosure of data abroad...47
+9.7 Using processors...48
+
+10 Final considerations...49
+11 References...50
+
+4
+
+# 1 INTRODUCTION
+
+This guide is provided by the Federal Data Protection and Information Commissioner (FDPIC). It provides an introduction to the risks and solutions associated with data protection in today's information systems. The main themes of data protection are presented from the point of view of possible technical and organisational measures, such as encryption, anonymisation, authentication, etc. The guide is designed as an aid to implementing appropriate measures to ensure optimal and appropriate protection of personal data, by making the links with current regulations and standards.
+
+The guide is primarily intended for people in charge of information systems, whether technicians or not, who are directly confronted with the problem of personal data management, in particular data protection officers or representatives of companies domiciled outside Switzerland. The guide mainly details the obligations of private data controllers, but data controllers for federal bodies can also find specific information concerning them in section "Federal bodies".
+
+The guide is organised into eight sections, covering data processing, rights and obligations, federal bodies, data protection, infrastructure, access and processing, the life cycle of data and finally data sharing and transmission. In each section, we outline the legal requirements and some of the points to bear in mind when designing and implementing a system. Measures are proposed for each point. They should be considered as general guidelines and then adapted to the specific characteristics of each project and each organisation. Links to Swiss and international standards are also provided for further information.
+
+Finally, it should be noted that this is not a guide to the law. While the essential rules of the FADP are presented, this is mainly for information purposes. The purpose of this guide is not to develop, comment on or clarify these legal rules and it is therefore not intended to serve as a basis for applying or interpreting these rules.
+
+# 1.1 DATA PROTECTION ACT
+
+This guide is based on the Federal Act on Data Protection (FADP) - in particular Articles 7 and 8 - and the related Ordinance (DPO) - in particular Articles 1 to 6. These provisions define the essential rules to be observed. Articles 2 and 3 FADP also define the scope of application: the FADP applies when data of private persons are processed, with effects in Switzerland, even if the processing originates abroad.
+
+This guide also contains links to relevant elements of the GDPR and international standards. Although reference is often made to the GDPR, it should be noted that this guide is not a comprehensive source of information on GDPR compliance.
+
+It should also be pointed out that, under the transitional provisions of Article 69 FADP, the provisions on data protection by design and by default (Art. 7), the impact assessment relating to the protection of personal data (Art. 22) and the prior consultation of the Federal Data Protection and Information Commissioner (Art. 23) do not apply to processing operations that began before the FADP came into force, i.e. on September 2023, unless the data processed or the purpose has changed since then.
+
+Finally, it should be noted that in addition to the FADP, there are also provisions on data protection in specific legislation, sometimes derogating from the FADP (e.g. Art. 32 ff. of the
+
+Human Research Act HRA). It is therefore important for data controllers to find out about any special laws that may apply to them because of their area of activity.
+
+## 1.2 DEFINITIONS
+
+The following terms will be used in this guide to differentiate certain concepts relating to organisational and technical measures: These definitions are specific to this guide and are not taken directly from the FADP.
+
+- Data security covers all measures taken to ensure the confidentiality, integrity and availability of data (e.g. monitoring or modifying data during transmission).
+- Data protection covers all measures taken to guarantee the rights of data subjects with regard to their personal data (e.g. data security, logging, privacy by design, etc.).
+- Automated processing of personal data means any operation on personal data carried out in automated processing systems.
+- The concept of high risk depends on the nature, extent, circumstances and purpose of the processing. It is the responsibility of the data controller to protect the personality and fundamental rights of the data subjects, and therefore to determine when the risk becomes high and to take the necessary measures if this is the case.
+
+Article 22 paragraph 2 letters a and b FADP gives two specific examples (large-scale processing of sensitive data and systematic surveillance of large public areas), but these are not exhaustive.
+
+The following terms are taken from Article 5 of the FADP and will be used as such in this guide.
+
+- Personal data means any information relating to an identified or identifiable natural person.
+- Data subject means a natural person whose personal data are processed.
+- Sensitive personal data or sensitive data are
+- data on religious, philosophical, political or trade union-related views or activities,
+- data on health, the private sphere or racial origin or ethnicity,
+- genetic data,
+- biometric data uniquely identifying a natural person,
+- data on criminal and administrative proceedings or sanctions,
+- data on social assistance measures
+- Processing means any handling of personal data, irrespective of the means and procedures used, in particular the collection, storage, keeping, use, modification, disclosure, archiving, deletion or destruction of data.
+- Disclosure means transmitting personal data or making such data accessible.
+- Profiling means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behaviour, location or movements.
+- High-risk profiling means profiling that poses a high risk to the data subject's personality or fundamental rights by matching data that allow an assessment to be made of essential aspects of the personality of a natural person.
+- Breach of data security means a breach of security that leads to the accidental or unlawful loss, deletion, destruction or modification or unauthorised disclosure or access to personal data.
+- Federal body means an authority or service of the Swiss Confederation or a person entrusted to carry out public tasks on behalf of the Confederation.
+
+5
+
+- Controller means a private person who or federal body which, alone or jointly with others, determines the purpose and the means of processing personal data.
+- Processor means a private person or federal body that processes personal data on behalf of the controller.
+
+## 1.3 GENERAL PRINCIPLES
+
+Data protection law is based on certain general principles that apply to all processing of personal data (Art. 6 FADP). Without going into a detailed description of these principles - on this point we refer to specialised legal works - the main points are as follows:
+
+- All data processing must be lawful (principle of legality), i.e. it must not infringe any rule of law, including a rule outside the FADP (in particular criminal law, such as Art. 138 ff. and Art. 179 ff. of the Criminal Code). In addition, data processing must not adversely affect the personality rights of the data subject, unless there is good reason to do so (Art. 30 ff. FADP). Article 31 paragraph 1 of the FADP mentions the consent of the data subject, the law or an interest overriding that of the data subject as justification. Paragraph 2 of this provision provides a non-exhaustive list of such interests: It is important to stress that these interests are taken into consideration, but are not automatically regarded as overriding. A specific analysis is required in each case.
+- All data processing must comply with the principles of good faith and proportionality. The latter principle implies that each aspect of processing must be limited to what is necessary: limiting data collection to what is actually necessary to achieve the intended purpose, limiting access to those who need it to carry out their tasks, limiting disclosure, limiting storage periods, etc.
+- The person processing the data may do no more with the data than is compatible with the stated purpose or recognisable to the data subject at the time of collection (principle of finality).
+- Anyone processing personal data must ensure that the data are accurate and complete in relation to the purpose for which they are being processed (principle of accuracy). It must therefore be possible not only to identify inaccuracies, but also to correct them.
+
+## 1.4 ROLES
+
+In terms of data protection, the following main roles can be identified.
+
+- The data controller is the private person or federal body which, alone or jointly with others, determines the purposes and means of processing personal data (see section 1.2).
+- The data protection officer is defined in Article 10 FADP (see also Arts 23 and 25 to 28 DPO). The officer's main tasks are to advise and train data controllers, and to assist in ensuring compliance with data protection regulations. The officer is also the main point of contact for data subjects and data protection authorities.
+- The processor is the private person or federal body that processes personal data on behalf of the controller. Generally speaking, the processor is bound by the same principles and obligations as the controller (principle of Art. 6 FADP, privacy by design, etc.). Some provisions specifically regulate certain aspects of the relationship between the processor and the controller (in particular Arts 9, 24 para. 3 and 25 para. 4 FADP, and Arts 7 and 17 para. 2 DPO).
+
+- The Federal Data Protection and Information Commissioner (FDPIC) is a body that supervises and advises private individuals and federal bodies. It also maintains a public register, for which federal bodies are obliged to declare their own records of data protection activities (Art. 12 para. 4 FADP).
+- The cantonal data protection (and information) commissioners carry out similar tasks for cantonal and communal bodies.
+
+## 1.5 TECHNICAL AND ORGANISATIONAL MEASURES
+
+Technical and organisational measures (Art. 7 and 8 FADP, Art. 3 DPO) make it possible to reduce the risks associated with an information system. The data controller is responsible for implementing such measures.
+
+- The technical measures relate directly to the technical aspects of the information system (anonymisation, encryption, authentication, etc.).
+- The organisational measures are broader and relate more to the environment around the system, the people who use it and the way it is used (authorisation policy, register of processing and activities, etc.).
+
+Both types of measure are essential. Combined, they can prevent the destruction and loss of data, as well as errors, falsification, unauthorised access, etc. These measures must be implemented throughout the life cycle of the data contained in an information system, and apply at all levels of the system.
+
+## 1.6 ADDITIONAL TOOLS
+
+In particular, the FADP provides two tools to assist data controllers and help them meet their obligations:
+
+- Codes of conduct (Art. 11 FADP, Art. 12 DPO): These are codes of good practice in data protection, developed by professional, sectoral or economic associations whose rules enable them to defend the interests of their members. These associations can submit their code to the FDPIC, which will issue an opinion that will be published. It should be emphasised that the FDPIC's assessment will not validate or reject the code, but is merely an opinion.
+- Certifications (Art. 13 FADP): software and systems suppliers, as well as data controllers and their subcontractors, may have their products certified by an independent approved body. These certifications demonstrate that they meet the requirements of the FADP.
+
+As well as enabling compliance with data protection requirements, these aids offer other advantages. Under the conditions set out in Article 22 paragraph 5 FADP, data controllers who follow a code of conduct or are certified are not subject to the requirement to carry out an impact assessment under Article 22 FADP. In addition, these instruments may also be used as a basis for disclosing data abroad, even if the State in question does not guarantee an adequate level of data protection (Art. 16 FADP and Art. 12 DPO).
+
+The 'Minimum Standard for Improving IT Resilience' (CH-MS [1]) is a simple, practical guide and contains links to other standards (ISO [2]COBIT [3]BSI [4]and NIST [5]). We refer to the CH-MS in the following chapters for further information.
+
+Data security
+
+[TABLE]
+
+Data protection
+
+Table 1: Steps to be taken during data processing, the laws that require them, and the standards that cover them. For the sake of clarity, please note the distinction made in this guide between 'data protection' and 'data security' (see section 1.2 above).
+
+1 European Data Protection Board, formerly known as the Article 29 Working Party.
+
+2 This Guide concerns the processing of personal data; the processing of other types of data is therefore not covered and may be subject to other laws not mentioned in this Guide.
+
+9
+
+# 2 DATA PROCESSING
+
+The data controller is responsible for the protection and security of the personal data that it processes or causes to be processed. In particular, the FADP requires it to use two specific instruments if the conditions are met: the data protection impact assessment and the record of processing activities. In addition, the data controller may have obligations to notify in the event of a data security breach, or the obligation to appoint a representative in Switzerland if it is itself based abroad. These matters are discussed in this section.
+
+Other obligations of the data controller will be detailed in sections "Rights and Duties" and "Data Protection".
+
+## 2.1 IMPACT ASSESSMENT
+
+A data protection impact assessment is required by Article 22 FADP and Article 35 GDPR "where the proposed processing is likely to result in a high risk to the data subject's personality or fundamental rights".
+
+Under Article 23 FADP, the controller is also required to consult the FDPIC if the impact assessment shows that a high risk remains despite the mitigation measures planned.
+
+The aims of a data controller's data protection impact assessment (DPIA or PIA for Privacy Impact Assessment) are to:
+
+- identify and resolve data protection problems at an early stage, reducing the complexity and cost of solutions;
+- demonstrate compliance with data protection principles, including issues relating to data subjects' right of access;
+- prove the conformity of the processing, particularly with regard to the design of the system, risk mitigation measures and controls implemented, to ensure that the rights of data subjects are respected;
+- determine whether the processing nevertheless presents risks for the personality or fundamental rights of the data subjects within the meaning of Article 23 paragraph 1 FADP.
+
+The DPIA is an important instrument in the FADP. It provides information on how the risks have been assessed and the measures planned to manage them. This information is also particularly useful for managing and assessing incidents such as a data security breach. A checklist on the DPIA can be found on the FDPIC website³. Guides and templates are also available on the CNIL (National Commission on Informatics and Liberty) website⁴, the ICO website⁵ and the EDPB website⁶.
+
+In this section, we consider the following issues:
+
+- When should an impact assessment be carried out?
+- When is an impact assessment optional?
+- How do you carry out an impact assessment?
+
+---
+
+³ Personal data protection impact assessment (admin.ch)
+⁴ Data protection impact assessment (FADP) | CNIL
+⁵ Data protection impact assessments | ICO
+⁶ Article 29 - Guidelines on Data Protection Impact Assessment (DPIA) (wp248rev.01)
+
+10
+
+## 2.1.1 Obligation to carry out a DPIA
+
+Before starting to process data, the controller must carry out an impact assessment if the processing is likely to result in a high risk to the personality or fundamental rights of the data subjects. It should be noted that, under the transitional provisions (Art. 69 FADP), an impact assessment must also be carried out for processing that began before the new FADP came into force, if the purpose of the processing changes or if new data are collected.
+
+Article 22 paragraph 2 FADP states that the existence of a high risk depends on the nature, extent, circumstances and purpose of the processing. A risk arises in particular when sensitive data are processed on a large scale or when large public areas are systematically monitored.
+
+If the controller intends to carry out several similar processing operations, it may draw up a joint impact assessment.
+
+Lastly, it should be noted that a private data controller is not required to make a DPIA if the controller is required by law to process data (Art. 22 para. 4 FADP).
+
+## 2.1.2 Exception to the obligation to carry out a DPIA
+
+An impact assessment represents a significant investment. For a company that regularly carries out data processing involving a DPIA, it may be worth considering measures to enable it to opt out.
+
+Article 22 paragraph 5 FADP gives private data controllers two options:
+
+**Certification**: The data controller may use a certified product, system or service in terms of Article 13 FADP. These certifications are issued by independent, accredited certification bodies.
+
+**Codes of conduct**: It may also follow a code of conduct in terms of Article 11 FADP which also meets the following three conditions: the code itself is based on an impact assessment, it sets out measures to protect personality and fundamental right, and it has been submitted to the FDPIC. These codes are drawn up by professional, sectoral and economic associations, authorised by their internal regulations to defend the economic interests of their members.
+
+The use of these instruments justifies a derogation, as long as, by complying with them, the data controller is working in an environment in which data protection compliance has already been proven.
+
+## 2.1.3 Data protection officer
+
+Important in this context is the role of the data protection officer (Art. 10 FADP and 23 DPO). If, despite the measures available, the DPIA shows that the risks remain significant, the data controller must normally consult the FDPIC (Art. 23 FADP). However, if the data controller uses a 'qualified' data protection officer, it is not required to consult the FDPIC. To be 'qualified', the data protection officer must meet the following conditions (Art. 10 para. 3 FADP):
+
+- The officer must perform his or her duties independently of the controller and without receiving instructions from the latter. This does not mean that the officer cannot be an employee of the company. If the officer is in-house, however, organisational measures will have to be taken to guarantee his or her independence.
+- The officer must not perform any duties that are incompatible with his or her role as Data Protection Officer (conflicts of interest).
+- The officer has the necessary professional knowledge.
+
+- Contact details are published by the data controller and communicated to the FDPIC (which provides a notification portal for this purpose)7.
+
+Measures to be considered:
+- Find out if there are any certified aids that meet your needs and compare the option of using them with the investment involved in repeatedly drawing up DPIAs.
+- Find out whether there is a code of conduct that meets the required conditions, and compare the investment needed to comply with its provisions with the investment needed to draw up repeated DPIAs.
+- Consider appointing a data protection officer who meets the requirements of Article 10 para. 3 FADP.
+
+2.1.4 Components of a DPIA
+
+Under Article 22 paragraph 3 FADP, a DPIA must contain:
+- a description of the planned processing;
+- an assessment of the risks to the personality and fundamental rights of the data subjects;
+- a description of the measures planned to mitigate the risks in question;
+- an assessment of the residual risk, taking into account the measures taken to limit it (Art. 23 FADP).
+
+The DPIA is the basic instrument for risk management, which is why it must be carried out with the necessary care and rigour. A well-conducted DPIA not only identifies and reduces or eliminates risks, but also makes it possible to respond more effectively in the event of an incident.
+
+2.2 RECORDS
+
+In principle, the data controller is obliged to keep a record of processing activities (Art. 12 para. 1 FADP). Sub-contractors have the same obligation.
+
+Data controllers
+
+Under Article 12 paragraph 2 of the Data Protection Act, the data controller's record must as a minimum contain the following information:
+- the identity of the data controller;
+- the purpose of the processing;
+- a description of the categories of data subjects;
+- a description of the categories of personal data processed;
+- categories of recipients;
+- if possible, the retention period for personal data, failing which, the criteria for determining the duration;
+- if possible, a general description of the measures taken to guarantee data security in accordance with Article 8 FADP;
+- if the data are to be disclosed abroad, the name of the country concerned and the guarantees provided (Art. 16 para. 2 FADP), as detailed in the section on disclosure of data abroad.
+
+7 Notification portal: dpo-reg.edoeb.admin.ch
+
+12
+
+# Processors
+
+Processors must keep a record containing a minimum of the following information (Art. 12 para. 3 FADP):
+
+- the identity of the processor;
+- the identity of the data controller;
+- the categories of processing carried out on behalf of the controller;
+- as far as possible, a general description of the measures taken to guarantee data security in accordance with Article 8 FADP;
+- if the data are to be disclosed abroad, the name of the country concerned and the safeguards taken (Art. 16 para. 2 FADP), as detailed in the section on disclosure of data abroad;
+
+# Exceptions
+
+Companies and other bodies governed by private law with fewer than 250 employees on 1 January of any given year, as well as natural persons, are exempt from keeping a record of activities, unless (Art. 12 para. 5 FADP and 24 DPO):
+
+- the processing involves a large volume of sensitive data;
+- the processing constitutes high-risk profiling.
+
+## Measures to be considered:
+
+- Regularly check whether data processing (and the number of employees) mean that there is an obligation to keep records.
+- When new data processing is planned, consider the obligation to keep records from the start of the process, so that data entry is made easier.
+
+# 2.3 REPORTING DATA BREACHES
+
+If, despite the protective measures put in place, a breach of security occurs that is likely to result in a high risk to the personality or fundamental rights of the individual, the data controller must notify the FDPIC as soon as possible (Art. 24 para. 1 FADP). If the breach occurs on a processor's premises, the processor must also notify the controller as soon as possible (Art. 24 para. 3 FADP).
+
+As specified in Article 24 paragraph 2 FADP, the report to the FDPIC must at least indicate the nature of the data security breach, its consequences and the measures taken or being considered to remedy it. In addition, the controller must inform the data subject when this is necessary for his or her protection or when required by the FDPIC. Further details on how to report breaches are given in Article 15 DPO.
+
+The data controller may limit, delay or dispense with the provision of information to the data subject in the following cases (Art. 24 para. 5 FADP):
+
+- the overriding interest of a third party so requires;
+- when the data controller is bound by law to maintain confidentiality;
+- the information is impossible to provide or doing so requires disproportionate effort;
+- the information provided to the data subject can be guaranteed in an equivalent way by public communication.
+
+Measures to be considered:
+
+- Learn about best practices to protect yourself from hackers; this guide presents them in the following sections: Access and treatment and Sharing and transfer. There are also specialised good practice documents⁸, as well as a number of specialist companies who can advise directly on specific needs.
+- Prepare a standard document or protocol for the event of a data security breach, in order to reduce the time taken to file a report on the DataBreach notification portal.⁹
+- Have a clear procedure for managing such incidents, including a realistic way of contacting the data subjects.
+
+2.4 DATA CONTROLLERS ABROAD
+
+Articles 14 and 15 FADP apply to data controllers (i.e. companies or individuals) whose registered office or domicile is abroad. They must appoint a representative in Switzerland when they process personal data relating to persons in Switzerland and this processing fulfils the following conditions:
+
+- the processing relates to the offer of goods or services or the monitoring of the behaviour of persons in Switzerland;
+- the processing is on a large-scale;
+- the processing is carried out regularly;
+- the processing poses a high risk to the personality of the data subjects.
+
+The controller must publish the name and address of its representative, who is the contact point for the FDPIC and the data subjects. The representative must keep a record similar to that of a controller (Art. 15 para. 1 FADP) and provide the FDPIC with the information it contains on request. The representative must also provide data subjects with information on how to exercise their rights on request.
+
+Measures to be considered:
+
+- Keep a record as detailed in the section on records and have a procedure for transmitting information.
+- Train an employee or find a qualified representative to take on the tasks prescribed in Articles 14 and 15 FADP, in particular those relating to the rights of data subjects (Rights and duties).
+
+8 Small Business Guide: Cyber Security - NCSC.GOV.UK
+9 EDOEB DataBreach (admin.ch)
+
+3 RIGHTS AND OBLIGATIONS
+
+All data processing must comply with the general principles set out in Article 6 FADP. These principles are reflected in the rights given to data subjects, including the following:
+
+- right to be informed when data are collected (Arts 19 to 21 FADP);
+- right of access to and delivery (portability) of data (Arts 25 to 29 FADP);
+- the right to prevent unlawful processing, in particular by requesting the cessation of processing, the rectification of inaccurate data or the destruction of data (Arts 32 and 41 FADP).
+
+These aspects are dealt with in Articles 13 to 20 GDPR.
+
+Any person whose personal data are processed has a number of rights in relation to the processing; data controllers must be able to guarantee the exercise of these rights. This section details the various rights of data subjects and the corresponding duties of data controllers.
+
+In this section, we consider the following issues:
+
+- What information must be given to the data subjects?
+- What rights do data subjects have over their data?
+- How can we ensure that the data subjects can assert their rights?
+- How can we ensure that the procedures for enforcing access rights are reproducible?
+
+## 3.1 DUTY TO PROVIDE INFORMATION
+
+Articles 19 to 21 FADP and 13 DPO concern the duty to provide information and its exceptions. The data controller is obliged to provide the data subject with adequate information regarding the collection of his or her personal data, whether or not the data are collected directly from the data subject.
+
+The data subject must therefore be given the information required to enable him or her to assert his or her rights if necessary, and to ensure that the processing operations are transparent. Where the data are not collected from the data subject, the latter must receive the information no later than one month after collection or, if earlier, at the time of transmission of the data.
+
+The information must contain at least:
+
+- the identity and contact details of the data controller;
+- the purpose of the processing;
+- the recipients or categories of recipient to whom the data are disclosed;
+- if the data are not collected directly from the data subject, the categories of data processed;
+- if the data will be disclosed outside Switzerland, the name of the State or international body to which the data will be disclosed and, if applicable, the measures taken to ensure adequate protection (Art. 16 and 17 FADP).
+
+14
+
+15
+
+# Exceptions
+
+Article 20 paragraphs 1 and 2 FADP allow data controllers to be released from their obligation to provide information about the collection of personal data if any one of the following conditions is met:
+
+- the data subject already has the relevant information;
+- the processing of personal data is provided for by law;
+- the data controller is a private individual and is bound by a legal obligation to preserve confidentiality;
+- the personal data are not collected from the data subject and the information is impossible or requires disproportionate effort to provide.
+
+It should be noted that, in the case of the media, the provision of information may also be waived under the conditions set out in Article 27 FADP.
+
+# Restrictions
+
+Articles 20 paragraph 3 and 27 FADP allow the data controller to restrict, delay or dispense with the provision of information if any one of the following conditions is met:
+
+- the overriding interests of a third party so require;
+- the provision of information prevents the processing from achieving its aim;
+- the controller has its own overriding interests and it does not intend to pass on the data to third parties.
+
+Examples of third parties' overriding interests here could be to fulfil their contract with the data subject or guarantee the security of the processing. An example of its own overriding interest could be to carry out direct marketing to the data subject (without communication to third parties).
+
+Article 27 FADP provides for additional options for the media.
+
+# Automated individual decisions
+
+Article 21 FADP also requires the controller to inform the data subject of any decision taken exclusively on the basis of automated data processing which has legal effects on or significantly affects the data subject.
+
+The data subject must be allowed to state their point of view on request. He or she may also ask for a natural person to review the decision.
+
+There are two exceptions to these rules:
+
+- when the automated decision is directly related to a contract between the data subject and the controller and the decision satisfies the data subject's request;
+- when the data subject expressly consents to the decision being taken automatically.
+
+# 3.2 DATA SUBJECTS RIGHTS
+
+In addition to the right to be informed, data subjects have a number of other rights concerning their personal data. These are described in Articles 25 to 29 and 32 FADP. In practical terms, these rights can be enforced through a civil action, generally based on Article 28 ff. of the Civil Code or on contract law.
+
+The rights of data subjects vis-à-vis federal bodies are essentially similar to those described in this chapter; for further information, see section "Data subject rights".
+
+16
+
+## 3.2.1 Right of access to personal data
+
+Article 25 FADP allows persons to ask the data controller whether personal data concerning them are being processed. They receive the information they need to assert their rights and to ensure that the processing is transparent. The information comprises the following as a minimum:
+
+- the identity and contact details of the data controller;
+- the personal data processed;
+- the purpose of the processing;
+- the period for which personal data will be kept or, if this cannot yet be determined, the criteria for determining it;
+- if the data have not been collected from the data subject, the source of the data;
+- if applicable, whether an automated individual decision has been taken and the logic on which it is based;
+- if applicable, the recipients or categories of recipient to whom the personal data are being disclosed and the information referred to in Article 19 paragraph 4 FADP.
+
+Personal data relating to the health of the data subject may be sent to the data subject, with his or her consent, via a health professional that the data subject has designated (Art. 25 para. 3 FADP).
+
+In principle, this information must be provided free of charge within 30 days. If the data are processed by a processor, the processor is obliged to help the controller to satisfy the right of access. In addition, the terms and conditions of the right of access are governed by Articles 16 to 19 DPO.
+
+## Restrictions
+
+Article 26 FADP allows the data controller to refuse, restrict or delay access in the following cases:
+
+- a formal law provides for it, in particular to protect professional secrecy;
+- a third party's overriding interests so require;
+- the request for access is clearly unfounded because it pursues an aim contrary to data protection or is clearly vexatious;
+- the data controller's overriding interests so require and it does not disclose the data to third parties.
+
+The data controller must indicate the reason for refusing, restricting or delaying the provision of the information within 30 days.
+
+It should also be noted that the media may benefit from additional exemptions under the conditions set out in Article 27 FADP.
+
+**Measures to be considered:**
+
+- Clear, comprehensible information must be provided. This is necessary so that everyone can know and exercise their rights.
+- A procedure for access requests must be put in place and known to employees.
+- The system is organised to meet demand: the search must be able to quickly find all the data for the data subject.
+
+- Data for which access rights may be restricted are clearly indicated as such, together with the reason.
+- In the event of a processor being used, a procedure for the processor to transmit data must also be defined.
+
+## 3.2.2 Right to data portability
+
+Article 28 FADP allows a data subject to request the controller to provide him or her with personal data in a conventional electronic format if the following two conditions are met:
+
+- the data controller is processing personal data by automated means;
+- personal data are being processed with the consent of the data subject or in direct connection with the conclusion or performance of a contract between the data subject and the data controller.
+
+Subject to the same conditions, the data subject may ask the controller to transmit the data in question directly to another controller, provided that this does not require a disproportionate effort.
+
+The delivery or transfer of personal data is in principle free of charge. The restrictions on this right are the same as for the right of access (Art. 29 FADP).
+
+The details, particularly of a technical nature, relating to the exercise of this right are described in Articles 20 to 22 DPO.
+
+The European Union has published directives on data portability, which can serve as a basis for implementing these rights¹⁰.
+
+### Measures to be considered:
+
+- when designing automated data processing, use a common format so that data are easy to extract;
+- alternatively, provide a method for transforming personal data into a commonly usable format;
+- find out about the existence of standards or models for the transmission of specific types of personal data (biometric, genetic, etc.);
+- establish protocols for the delivery and disclosure of personal data and make them known to employees;
+- consider the feasibility of importing personal data from the systems of other data controllers who carry out similar processing operations.
+
+## 3.2.3 Right to personal data deletion
+
+Article 32 paragraph 2 letter c FADP provides that the data subject may request the deletion or destruction of his or her personal data. This right, which involves the erasure or anonymisation of personal data, can be complex to implement for large-scale processing operations, due to the often international aspect of such processing and advances in current technology, for example with the use of a cloud on servers spread over several continents.
+
+When data are destroyed, the system must ensure that all the data concerned by the request (which are not necessarily all the data subject's personal data) are erased/anonymised by the
+
+¹⁰ Article 29 - Guidelines on the right to "data portability" (wp242rev.01) (europa.eu)
+
+operation (Destruction of data). This is greatly facilitated if the system has been designed according to the principles of protection by design and by default).
+
+## 3.2.4 Right to personal data rectification
+
+Article 32 paragraph 1 FADP stipulates that data subjects may demand that inaccurate personal data be rectified, unless modification is prohibited by law or the data are processed for archival purposes in the public interest.
+
+If necessary, the data controller must ensure that the data are modified in all its systems and databases, and check whether it has been used to make decisions. Depending on the case, it may be appropriate to check whether decisions have been taken on the basis of this erroneous data.
+
+If the accuracy or inaccuracy of an item of data cannot be proven, the data subject may request that it be marked as disputed (Art. 32 para. 3 FADP).
+
+We recommend that you prepare for this type of situation by putting in place clearly defined processes and preparing the appropriate tools (in particular, fields to indicate the contentious nature of the data).
+
+## 3.2.5 Right to personal data processing prohibition
+
+Article 32 paragraph 2 letter a FADP states that the data subject may request that the processing of his or her personal data be prohibited.
+
+In addition to situations where individuals wish to prohibit processing that they consider to be unjustified in its entirety, this right is also useful in hybrid situations, particularly where data are being processed for multiple purposes. For example, if an e-mail address is used to register an account and for the site's weekly newsletter; the data subject may request that the use of his or her address for distributing the newsletter be discontinued.
+
+Similarly, if some personal data must be kept for legal reasons (e.g. medical records), but the data subject does not want the data controller to use it for other purposes, he or she can therefore prohibit any processing that goes beyond this aim.
+
+In response to such requests, the data controller must be able to separate its various processing operations. It is therefore advisable to provide a simple process for ending certain specific processing operations (e.g. unsubscribing from the newsletter by unticking a box).
+
+## 3.2.6 Right to personal data non-disclosure
+
+Under Article 32 paragraph 2 letter b FADP, the data subject may request that the disclosure of personal data to third parties be prohibited.
+
+Setting up an attribute for authorising sharing is one way of complying with requests to prohibit disclosure without actually deleting the data. These measures can be combined with the purpose limitation measures mentioned above.
+
+## 3.2.7 Right to inform of measures relating to personal data
+
+Finally, it should be noted that the data subject may request that the measures referred to in subsections 3.2.3 to 3.2.6 be published or communicated to third parties (Art. 32 para. 4 FADP).
+
+18
+
+# Measures to be considered:
+
+- The processing systems are organised in such a way as to be able to respond to a variety of requests without compromising the overall processing.
+- The procedures for responding to these requests are predefined, clear and familiar to employees.
+- The procedures relating to the various requests are easily accessible and easy to implement for data subjects, for example in a 'Data Protection' or 'My Account' section.
+- In the case of personal data posted online, it may be advisable to de-index certain pages from search engines in order to simplify compliance with the rights of the data subjects.
+
+# 3.3 REPRODUCIBILITY OF PROCEDURES
+
+The procedures for implementing the various rights of data subjects must be clearly defined and reproducible. If the mechanisms are pre-programmed into the system that processes the data, all employees with appropriate authorisations will be able to perform the various actions on the data requested by the data subjects. A pre-programmed mechanism is also beneficial during an inspection by a supervisory authority, as it demonstrates that the various rights of data subjects can be respected if requested.
+
+# Measures to be considered:
+
+- The procedure for executing access rights is pre-programmed into the system.
+- All employees use the same procedure.
+- The supervisory authority can carry out its work, if necessary, by testing the procedure built into the system.
+
+Further reading:
+
+[TABLE]
+
+
+4 FEDERAL BODIES
+
+Generally speaking, federal bodies are subject to the same rules and principles as private companies, although there are variations. Articles 33 to 42 FADP set out the rules that apply specifically to these bodies. The DPO also regulates things slightly differently for federal bodies (Art. 4 para. 2 or Art. 6 DPO for example). As this guide is aimed primarily at private individuals, the specific features relating to federal bodies will be presented only briefly. Further information can be found on the FOJ website¹¹.
+
+## 4.1 LEGAL BASIS
+
+In principle, federal bodies only have the right to process personal data if they have a statutory basis for doing so (Art. 34 FADP).
+
+If the processing involves sensitive data or profiling, or could potentially cause serious harm to the fundamental rights of the data subject, the statutory basis must also be a formal law (Art. 34 para. 2 FADP).
+
+In the case of sensitive data processing or profiling, a substantive statutory basis may nevertheless suffice if the processing does not present any particular risks to the fundamental rights of the data subject and if the processing is essential for the performance of a task, itself defined in a formal law (Art. 34 para. 3 FADP).
+
+Finally, as an exception to the above, federal bodies are entitled to process personal data in three cases (Art. 34 para. 4 FADP):
+
+- if the Federal Council authorises the processing, considering that the rights of the data subjects are not at risk;
+- if the data subject has consented to the processing in question or has made his or her personal data accessible to everyone and has not expressly objected to the processing;
+- if the processing is necessary to protect the life or physical integrity of the data subject or of a third party and it is not possible to obtain the consent of the data subject within a reasonable time.
+
+## 4.2 PROCESSING FOR PURPOSES NOT RELATING TO INDIVIDUALS
+
+Article 39 FADP allows federal bodies to process personal data for research, planning or statistical purposes provided:
+
+- data are anonymised as soon as the purpose of the processing allows;
+- the federal body communicates sensitive data to private persons only in a form that does not allow the data subjects to be identified;
+- the recipient only discloses the data to third parties with the consent of the federal body that disclosed the data; and
+- the results of the processing are only published in a form which does not allow the data subjects to be identified.
+
+This article introduces an exception to the purpose principle and also represents a relaxation of the statutory requirements for the processing and disclosure of data (see Art. 39 para. 2 and the articles cited therein).
+
+¹¹ Information for federal bodies (admin.ch)
+
+21
+
+# 4.3 DISCLOSURE
+
+Generally speaking, the disclosure of personal data is subject to the same conditions as the processing itself (see Art. 36 para. 1, referring to Art. 34 paras 1 to 3 FADP, see above). However, Article 36 paragraph 2 FADP provides for specific exemptions: These are essentially situations where it is necessary to carry out a task, or where it is necessary to safeguard overriding interests, or if the data subject objects in bad faith. The consent of the data subject is also a reason that may justify disclosure.
+
+Normally, federal bodies also have the right to disclose a person's surname, first name, address and date of birth on request (Art. 36 para. 4 FADP). However, this is a right, not an obligation: the body must always weigh up its interests in the light of data protection principles. Federal bodies may also inform the public or make data publicly accessible in the cases referred to in Article 36 paragraphs 3 and 5 FADP.
+
+Lastly, and as a general rule, federal bodies may refuse to disclose information if they are bound by a statutory duty of confidentiality or if there is a significant public or private interest in doing so (Art. 36 para. 6 FADP). It should also be noted that data subjects may object to the disclosure of their data; the federal body then decides on the objection (Art. 37 FADP).
+
+# 4.4 RECORD OF PROCESSING ACTIVITIES
+
+Federal bodies must keep a record of processing activities, the content of which is similar to that which must be kept by private individuals (Art. 12 FADP, see Records). They must also declare their records to the FDPIC (12 para. 4 FADP). They can do so on the dedicated notification portal.[12]
+
+# 4.5 REPORTING A DATA SECURITY BREACH
+
+Federal bodies are subject to the same obligations for reporting data security breaches as private individuals (Art. 24 FADP). There is, however, a nuance in the grounds on which they may limit, delay or dispense with the provision of information to the data subject: the interest of a third party is not at issue here, but the preservation of an overriding public interest or to ensure the relevance of an inquiry, investigation or legal proceedings (Art. 24 para. 5 let. a, in conjunction with Art. 26 para. 2 let. b FADP).
+
+# 4.6 AUTOMATED INDIVIDUAL DECISIONS
+
+Generally speaking, the rules governing automated individual decisions are the same for federal bodies and private individuals. However, there are two differences introduced by Article 21 paragraph 4 FADP:
+
+1) when a federal body issues an automated individual decision, it must designate it as such;
+2) the data subject cannot state his or her point of view and request that a natural person review the decision if, on the basis of a federal act (e.g. Art. 30 para. 2 Administrative Procedure Act (APA)), the person does not have to be heard before the decision is made.
+
+[12] Datareg: http://datareg.edoeb.admin.ch/
+
+22
+
+# 4.7 DUTY TO PROVIDE INFORMATION
+
+Once again, a federal body is essentially subject to the same conditions as a private person (Duty to provide information). Unlike a private person, however, a federal body may not limit, delay or dispense with providing information to satisfy its own interests (Art. 20 para. 3 let. c FADP), but in order to safeguard public interests or the relevance of an inquiry, investigation or legal proceedings (Art. 20 para. 3 let. d FADP).
+
+# 4.8 DATA SUBJECTS RIGHTS
+
+Generally speaking, federal bodies must comply with the same requirements as private individuals as regards the rights of the data subjects (Rights and Duties).
+
+It should be noted that with regard to the right of access, a federal body may not refuse, restrict or defer access for its own interests, but only to safeguard an overriding public interest or the relevance of an inquiry, investigation or legal proceedings (Art. 26 para. 2 let. b FADP).
+
+When it comes to enforcing their rights, data subjects have more or less the same substantive rights as they do against private individuals (Art. 41 compared with Art. 32 FADP). Article 41 FADP sets out certain nuances in the nature and implementation of these rights. It should be noted in particular that such a procedure would be governed by the APA (Art. 41 para. 6 FADP).
+
+Finally, Article 42 FADP governs the coordination between the procedures under the Freedom of Information Act and the rights conferred by Article 41 FADP.
+
+Measures to be considered:
+- Clearly state the legal basis and/or reason for any processing of personal data.
+- Indicate the personal data affected by the exceptions to the various rights of data subjects.
+- Set up procedures similar to those recommended in the section on Rights and duties.
+
+# 4.9 LOGGING
+
+For federal bodies and their processors, logging must be carried out in all cases where they carry out automated processing of personal data. Logging must cover at least the recording, modification, reading, communication, deletion and destruction of data.
+
+In addition, the requirements for logging by private data controllers also apply (Logging).
+
+# 4.10 PROCESSING REGULATIONS
+
+For certain types of automated processing (see Art. 6 para. 1 DPO), federal bodies are required to draw up processing regulations. The content of these regulations corresponds to that required for private regulations (Processing regulations). The FDPIC also provides a model of processing regulations for federal bodies$^{13}$.
+
+$^{13}$ Processing Regulations (for federal bodies) (DOCX)
+
+5 DATA PROTECTION
+
+Data protection by design and by default, as prescribed by Article 7 FADP and Article 25 of the GDPR, requires that measures be taken to minimise the collection and disclosure of personal data.
+
+The principle of proportionality, Article 6 paragraph 2 FADP, and Article 5 paragraph 1 letter c GDPR require in particular that access to personal data should be limited.
+
+The principle of data accuracy is set out in Article 6 paragraph 5 FADP and Article 5 paragraph 1 letter d GDPR.
+
+This section proposes measures to be taken to protect the content of personal data. Various techniques and practices are described that improve data protection by directly affecting data content.
+
+Article 7 paragraphs 1 and 2 FADP sets out the data controller's duty to put technical and organisational measures in place from the outset to ensure that processing complies with data protection requirements. The use of message encryption (Message encryption) or pseudonymisation (Pseudonymisation) at certain stages of processing, for example, provides better protection for the personal data of data subjects.
+
+In this category, we include (technical) measures that affect the content of the data, in order to make it less precise, less sensitive, by adapting it to the intended purposes. These measures aim to adapt (minimise) the information that the data provides. In other words, the amount of data may remain the same (e.g. ID, gender, exact address), but the information provided will vary depending on the intended purpose (e.g. ID, gender, canton).
+
+This adaptation of information also serves to:
+
+- Adapt information to the intended purpose (principle of proportionality).
+- Ensure information is secure (security principle). If the data were to fall into the wrong hands, the information revealed would be less accurate and less sensitive.
+- Data may be anonymised.
+
+## 5.1 PROTECTION BY DESIGN AND BY DEFAULT
+
+Data protection by design (Art. 7 para. 1 FADP) requires the data controller to take account of data protection principles when the system is being designed, and not just afterwards. Prior to starting processing, consideration should be given to the reasons for collecting, using, managing and organising the data, to ensure compliance with data protection standards, and in particular the implementation of the recommendations made in this guide.
+
+Data protection by default (Art. 7 para. 3 FADP) is a way of expressing the principle of proportionality. The data controller must take steps as soon as the data are collected to ensure that, by default, in particular by means of pre-settings, only the amount of data strictly necessary for the purpose of processing is collected and used. For example, when cookies are collected on a website, those that are not necessary for consulting the site should be deactivated by default; Users who accept the use of additional cookies must also actively consent to their use.
+
+23
+
+This concept also applies to subsequent stages of processing: for the data controller, the aim is to ensure that each stage of processing can be carried out with the absolute minimum of information required.
+
+The various measures taken as part of protection by design and by default are typically set out in detail in an DPIA (Impact Assessment).
+
+# Measures to be considered:
+
+- Where data not required for processing is also collected, provide a default value of zero or negative (e.g. 'NA').
+- Clearly indicate and separate the data that are necessary and not necessary for processing.
+- Take into account the effects of non-essential information on the effectiveness of anonymisation and pseudonymisation.
+
+# 5.2 PSEUDONYMISATION
+
+In legal terms, pseudonymisation involves modifying personal data in such a way that it can no longer be linked to a specific person without additional information or disproportionate effort. However, pseudonymised data still carries a risk of re-identification and is therefore still considered to be personal data.
+
+Pseudonymisation involves creating a pseudonym which typically replaces the name, date of birth, etc. of the data subject in the databases. At the same time, a separate mapping table is created to link the name to this pseudonym. This means that only people with access to this table can easily link the data before the name, and thus reverse the pseudonymisation.
+
+The following diagram provides an overview of this process:
+
+![img-0.jpeg](img-0.jpeg)
+
+There are various ways of mapping identifying data to their pseudonyms, including:
+
+- Providing mapping tables, as in the example shown above.
+- The use of 'functions' whose inputs are the identifying data and whose outputs are the corresponding pseudonyms.
+
+Note that these matches, whether they are made with tables or functions, should not be reversible (without going through the table, for example). In the example above, it should not be possible to invert P0052 to obtain 'Paul Dupont' without using the mapping table. To ensure that matches are not reversible:
+
+- Matches in the table must be random, or based on a 'secret' that is unknown to the people using the pseudonymised data.
+- If the match is made by 'functions', these must not be reversible. This is typically the case for cryptographic hash functions, such as SHA256, MD5 etc. For example, SHA256('Paul Dupont') could be '671ee34bbd2aec7bd6077ebf3fd8f35d1b1dd70279416e18b20937e1', and it is virtually impossible to guess the input from this output.
+- However, since these hash functions are public, the person using the pseudonyms can easily check what SHA256('Paul Dupont') gives (or the whole list of possible names, such as those of company colleagues, for example), to establish the link between 'Paul Dupont' and his pseudonym '671...7e1'. To avoid this, a secret key must be used in combination with the identifying data, before hashing. For example, SHA256('Paul Dupont', 'TopSecret') gives a pseudonym that the user is unable to reverse until they have access to 'TopSecret'. This is known as hashing with a secret key.
+- By destroying the mapping table, or the secret hash key, we eliminate the possibility of going back from the pseudonym to the corresponding identifying data, both for the person who set up the mapping table or hash, and for the person who uses the pseudonyms. However, this destruction of links is not sufficient for the data to become anonymous, as will be explained below.
+
+## 5.3 ANONYMISATION
+
+In legal terms, anonymisation involves irreversibly modifying personal data so that they can no longer be linked to a specific person without disproportionate effort$^{14}$. Anonymised data are no longer considered to be personal data, and therefore falls outside the scope of the FADP.
+
+Deleting a table of identifiers used to mask the name is often not enough to ensure data anonymity. For example, in a hospital's patient list, [ID 8128136, Female, 42 years old, lives in (small village), treated for AIDS, date of operation 12.07.2021] does not meet the conditions of anonymity. Even without hiding the name behind the ID, it would be easy to find out who this person is, for example for her employer, or even for anyone who knows her age and the village where she lives. The smaller the number of data subjects, and the more data that remains, the easier it is to re-identify the person.
+
+There are several anonymisation techniques, which will be described below. However, they are not always sufficient to anonymise all datasets. Each different set of data requires individual consideration, and some simply cannot be made anonymous without losing their usefulness (which then presents the data controller with the choice of processing personal data or dispensing with processing altogether). In addition, certain types of data require different techniques, such as the anonymisation of people in videos or photographs, which requires adapted techniques.
+
+$^{14}$ This means that ‘identification requires means that, in the ordinary course of events, no interested party will use [...]. All the means reasonably likely to be used to identify the person must be taken into account in each case. Whether the means in question is reasonable must be assessed in the light of all the circumstances, such as the cost and time required for identification, taking into account the technologies available at the time of processing and their development’ (FADP Dispatch, BBI. 2017 p. 6639).
+
+To estimate the level of anonymisation, beyond its legal definition, there are several risk models. As defined by the Article 29 Working Party¹⁵ in its Opinion on Anonymisation Techniques [7]:
+
+- individualisation, which involves isolating some or all of the records identifying an individual in the dataset;
+- correlation, which consists of linking at least two records relating to the same data subject or a group of data subjects (either in the same database or in two different databases). If an attack makes it possible to establish (for example, by means of a correlation analysis) that two records come from the same group of individuals, but does not make it possible to isolate individuals within this group, the technique prevents "individualisation", but not correlation;
+- inference, which is the ability to deduce, with a high degree of probability, the value of an attribute from the values of a set of other attributes.
+
+A solution resistant to these three risks would therefore offer reliable protection against attempts at re-identification using the means most likely to be reasonably used by the data controller or by third parties.
+
+It should be noted that it is increasingly difficult to talk about real anonymisation (in the technical sense), which is absolutely irreversible. This is because of:
+
+- the growth in the volume of data that can be used for re-identification;
+- increasingly easy access to this data;
+- new, more efficient and more precise algorithms that can be used for re-identification;
+- advances in cryptography that could make existing techniques less robust.
+
+Anonymisation best practice Art. 29 Working Party¹⁵
+
+In general:
+
+- Do not simply 'publish and forget'. Given the residual risk of identification, data controllers should:
+
+1. identify new risks and regularly reassess residual risks;
+2. examine whether the risk checks identified are sufficient and adjust them accordingly;
+3. monitor and control risks.
+
+- Among these residual risks, the possibility of identifying the non-anonymised part of a dataset should (where applicable) be taken into consideration, especially in combination with the anonymised part, as well as possible correlations between attributes (for example between data relating to geographical location and those relating to level of prosperity).
+
+¹⁵ Now European Data Protection Board (EDPB)
+
+Measures to be considered:
+
+- Favour the use of anonymised data to the extent that the project allows. If the data are correctly anonymised, then the FADP no longer applies.
+- In the case of anonymisation, no indirect identifying information is retained. Indirect identifying information is information which, when combined with other information which, in itself, is not significant, makes it possible to identify a person.
+- If anonymisation is not possible, employees should work with pseudonymised data if possible.
+- The mapping table and/or the secret hash key must be secure. They should only be accessible to a limited number of employees and, if possible, they should be encrypted.
+
+# 5.4 GENERALISATION
+
+Generalisation consists of replacing certain attribute values by more generic values or by value margins. For example:
+
+- Replace a certain date of birth (e.g. 8.03.1980) with the year of birth (e.g. 1980), or an age range (e.g. [40-50] years).
+- Replace a certain exact address with its town, region or canton (you can easily prioritise).
+- Replace a given nationality with its geographical region, or continent.
+
+Generalisation makes attributes less useful for re-identifying people. For example:
+
+- [Sex: Female, Age: 32, Nationality: Moldovan, Address: Morges] can easily be identified. In generalized form, [Sex: Female, Age: 30-40, Nationality: Eastern Europe, Address: Lausanne Region] would make identification more difficult.
+- For a weather service, GPS granularity ( $\sim 2\mathrm{m}$ ) is not necessary, and its use could identify the user unnecessarily. It would be more appropriate to generalise at local level.
+
+The generalisation of data contributes to:
+
+- Any anonymisation of data (outside the scope FADP and the GDPR).
+- The proportionality of the information collected, whether or not the data are anonymous.
+- Data security, whether the data are anonymous or not.
+
+# 5.5 MINIMISATION
+
+A practical application of the concept of protection by design, minimisation involves collecting the strict minimum of data required. Certain data, or combinations of data, may contribute to the identification of data subjects, even if they are not in themselves personal or sensitive.
+
+Here are some examples:
+
+- To analyse the means of transport preferred by users of a certain application, excluding GPS data around users' homes would make it easier to hide their identities.
+- An application that offers certain services (e.g. public transport) in a certain country, during certain opening hours, should not collect the user's location in other countries, or outside service hours.
+
+As with generalisation, data filtering helps to ensure:
+
+- Proportionality, whether the data are anonymous or not.
+- Data security, whether the data are anonymous or not.
+
+## 5.6 RANDOMISATION
+
+Some processes have the aim of seeking statistical rather than individual results from the data collected. This is typically the case where we can apply randomisation, i.e. the random change of attribute values. For example: if we are looking for the average age of a certain population, we can change the individual values collected, while keeping (almost) the same original average.
+
+Several techniques fall into this category, including:
+
+- adding noise, i.e. changing categories of information without changing the information relevant to the measurement (e.g. adding five years to one person and removing five years from another);
+- permutation, i.e. the inversion of data between different datasets without changing the information relevant to the measurement (e.g. swapping the age between two people);
+- differential confidentiality, which is a specific randomisation technique that determines the amount of noise to be added during data transfer rather than directly to the data.
+
+It should be noted that randomisation changes the values of the attributes, without making the data subjects anonymous. For example, people's surnames/first names could be kept in plain text, but the ages indicated would be incorrect, and useless if taken individually. This is a way of reducing risks without changing identifiers.
+
+On the other hand, in the absence of other identifiers, randomised attributes contribute indirectly to anonymisation. For example, by adding noise to the age [Male, 39, Morat], where $39 = 34 +$ noise, we are less certain of the person's identity.
+
+## 5.7 HOMOMORPHIC ENCRYPTION
+
+A homomorphic encryption algorithm is capable of encrypting data in such a way as to retain the mathematical properties of the data while it is still possible to measure certain information about the data by only having access to the encrypted version.
+
+This relatively recent method is limited in the operations that can be carried out on it and can be relatively costly to implement, but it can make it possible for sensitive data to be processed by a third party without the risk of access by the latter.
+
+There are also partially homomorphic algorithms, which typically allow a single operation, but at a lower cost.
+
+## 5.8 SYNTHETIC DATA
+
+Synthetic data are data created artificially from real data, for example using a machine learning algorithm. These data would be sufficiently similar to real personal data to be able to train other models on them (fake images of tumours for a medical aid system, for example).
+
+In principle, the use of such data means that they fall outside the scope of the FADP, but great care must be taken with the process used to create the data. It must be impossible to recreate the original data or to re-identify the data subjects in the original personal data (see Anonymisation). If this is not the case, the data must still be considered personal data.
+
+28
+
+6 INFRASTRUCTURE
+
+Data security, based on Article 8 FADP, Article 3 DPO, and Article 5 paragraph 1 letter f and Article 32 GDPR, requires, among other things, secure premises, servers and workplaces.
+
+The measures described above focus on data content; they do not address the environment for these data, i.e. the infrastructures and the behaviour of the people called on to work with this data. The physical location of data must be carefully considered: where are the data servers located and how can their security be ensured, taking into account all the players involved?
+
+The following aspects are dealt with in detail and accompanied by specific measures:
+
+- How do you ensure the security of your premises?
+- How do you ensure server security?
+- How can you ensure the security of your workplaces?
+- What are the risks of using a cloud?
+
+## 6.1 SECURITY OF PREMISES
+
+Premises are defined as the places where system users work and therefore have access to data. Data are physically stored in server rooms (see next section) and personal computers are the peripherals used to access this data. Access to these machines, as interfaces to the data, must be controlled. Only authorised persons are allowed access to buildings and offices. The jobs that these people do will vary and they all need to be taken into account when defining specific access rights: This includes the organisation's employees, of course, but also maintenance and cleaning staff, etc.
+
+The overall context must be taken into account in order to take appropriate measures. Where several organisations share the same building, they do not necessarily have the same data protection needs. Security must then be adapted, by floor for example. In addition, data servers can be outsourced and their security entrusted to third parties.
+
+## Measures to be considered:
+
+- Access to the building(s) is regulated. A badge, possibly combined with an access code, is used to authenticate people wishing to enter the building.
+- If several organisations share the same building, access to the organisation's private premises must also be regulated, if necessary: an electronic access system is installed on the floor or in the section reserved for the organisation.
+- Specific regulations and a reception procedure for visitors should be established to ensure that visitors do not wander freely around the building on their own.
+- Offices are locked outside office hours.
+- Alarms may be installed in the most sensitive premises and are activated outside office hours.
+
+29
+
+30
+
+## 6.2 SERVER ROOM SECURITY
+
+Server rooms are the most sensitive areas of an organisation, since data are physically stored on these machines. Data integrity and availability are guaranteed if the permanent loss of data is impossible because appropriate measures have been taken. Here too, it is important to determine who is authorised to access these rooms. With a limited number of authorisations granted, security is improved. It is important to avoid tampering with the servers, whether intentional or unintentional, as this can lead to the destruction or modification of data. Special measures must therefore be taken to secure server rooms.
+
+**Measures to be considered:**
+
+- A limited number of people are authorised to enter the server rooms. Allowing access to all people who do the same job is too lax. Access for system maintenance purposes is authorised for a limited number of technicians. Similarly, it is a good idea to always entrust the cleaning of the rooms to the same cleaning staff.
+- Access to server rooms is logged.
+- An alarm is installed and operates continuously to prevent any unauthorised intrusion.
+- Ideally, the server room should be located in the basement to minimise the number of physical access points (doors, windows, etc.).
+- Natural incidents, such as fires or floods, can be detected automatically and signalled by alarms.
+
+## 6.3 WORKPLACE SECURITY
+
+Employees access and process data from their workplace. The employee's personal computer is installed here. The work environment must be secured by strategically placing the various peripherals. A sufficient number of lockable storage units must be made available to employees.
+
+The personal computer must be protected by a password known only to the employee. It must also be protected by the necessary software to prevent intrusion. Protection must cover all types of virus, malware and attacks in the broadest sense.
+
+These measures should also be extended to employees working remotely. You can find advice on this subject on the NCSC website¹⁶.
+
+**Measures to be considered:**
+
+- Workstations are arranged so that computer screens are not visible from the door. This prevents visitors from outside the organisation from observing employees at work.
+- Printed documents are not left unattended around the printer. For example, employees must enter a code in the printer to enable their documents to be printed.
+- Employees store their printed documents and any sensitive material (USB sticks, CD-ROMs, etc.) in lockable storage units.
+- Laptops, and possibly desktop computers too, are chained to the desk to prevent theft from inside the premises.
+- Antivirus software is available and activated on all machines. It is updated regularly.
+
+¹⁶ Home Office - Securing your remote access (admin.ch)
+
+31
+
+# 6.4 USING THE CLOUD
+
+The main reasons for using cloud computing systems are reduced IT infrastructure and software costs, outsourced management of intermediate or high-level programs, greater computing capacity, dynamic data storage space (the memory rented in the cloud increases or decreases according to the data stored there), mobility, simplicity and speed of data access, system scalability and, in some cases, improved security.
+
+Data offshoring is always risky. In this respect, cloud computing poses the following problems, among others:
+
+- Loss of control over data.
+- Lack of separation and isolation of data from the supplier's various customers.
+- Non-compliance with legal provisions by the supplier.
+- Access to data by foreign authorities.
+- Captivity.
+
+Even if they are reduced in principle, the following risks continue to exist, whether or not data are processed in a cloud:
+
+- Loss of data.
+- System and network failures and unavailability of resources and services.
+- Misuse of data.
+
+Using the cloud is not an end in itself, but a means of meeting needs. The first step is to identify these needs and ask yourself whether you really need a cloud, and if so, for what part of your business.
+
+Furthermore, when choosing the type of cloud to be used (private cloud, company-owned public cloud or hybrid cloud), you need to carry out a thorough analysis of data protection requirements at an early stage, paying particular attention to the way in which personal data are handled (from storage to deletion and further processing), so that the cloud configuration complies with these requirements from the outset. If, following a risk analysis, there are doubts about the way in which personal data are handled in the cloud, it should not be relocated without further risk mitigation measures.
+
+Secondly, the processor must be chosen carefully (in particular by carrying out a complete organisational, legal and technical risk analysis), given precise instructions and carefully supervised, as specified in Article 9 paragraph 2 FADP. You need to choose carefully which applications and data can be relocated to the cloud and which should remain on your own servers. At the end of the day, the service user remains responsible for compliance with data protection regulations, since it is commissioning a processor, and continues to be accountable to the data subjects.
+
+For more information on the cloud, consult the FDPIC website¹⁷.
+
+¹⁷ Cloud computing (admin.ch)
+
+32
+
+# 6.5 FURTHER INFORMATION
+
+Other important aspects to consider with regard to infrastructure:
+
+[TABLE]
+
+
+7 ACCESS AND PROCESSING
+
+Data security based on Article 8 FADP, Article 3 DPO, and Article 5 paragraph 1 letter f and Article 32 GDPR involves, among other things, securing access to data.
+
+The destruction or anonymisation of data when they are no longer required for the purposes of processing is required by Article 6 paragraph 4 FADP and Article 17 paragraph 1 letter a GDPR.
+
+As well as securing the infrastructure, measures also need to be taken in terms of data use and management. This section covers:
+
+1. Access management;
+2. Data lifecycle and logging.
+
+## 7.1 ACCESS MANAGEMENT
+
+The issue here is who has access to the data, who can manipulate them and to what extent. This implies several levels of security: the computers used by employees must be accessible only to those who have been granted access and must be protected against attempts at external intrusion. These attempts can be local - an unauthorised person enters the premises - or remote - an unauthorised person accesses the system via the network. Finally, you need to decide how you want to keep track of physical and electronic access:
+
+1. How do you ensure user identification and authentication?
+2. How do you secure access to user data?
+3. How do you manage remote access?
+
+## 7.2 IDENTIFICATION AND AUTHENTICATION
+
+Identification enables us to know the identity of an individual and to distinguish them from others. Authentication verifies that an individual is who they claim to be. Authentication is based on proof that the individual presents to the system. There are three types of proof. It may be an object that the individual possesses (a badge, for example), or information that the individual knows (a password, for example), or a property that characterises the individual (a behavioural property, such as a signature, or a morphological property, such as a fingerprint). We talk about strong authentication or multi-factor authentication (MFA) when at least two methods are combined (badge and password, password and authenticator application, etc.).
+
+A password policy is an important tool in authentication management, and helps to reduce the risk of employees choosing passwords that are too easy. Criteria include minimum length, maximum period of validity, use of special characters and capital letters, number of wrong entries before blocking, etc.
+
+The use of password generation and management programs can make it easier for employees to comply with these instructions.
+
+The CNIL has produced a factsheet on authentication $^{18}$, which also contains a tool for calculating the complexity of your password policy $^{19}$. You can also find reviews of specific technologies on the NCSC website (currently in German only) $^{20}$.
+
+Measures to be considered:
+- The user accounts that enable authentication are unique. Employees do not share accounts. An account comprises an identifier (user name) associated with a password, or a badge, etc.
+- Ideally, each individual has different accounts to authenticate themselves on their work machine and then on the different applications they use. This means that if someone gains access to the machine with malicious intent, they will not yet be able to access the data via the installed applications.
+- If single sign-on (SSO) is used, security measures are adapted accordingly, since with this mechanism, access to the machine also authorises access to applications.
+- A detailed password policy is drawn up and kept up to date with changes in security recommendations.
+- The frequency with which passwords are changed is inversely proportional to the complexity required.
+- Authentication using biometric data must comply with the measures set out in the 'Guide to biometric recognition systems ' $^{21}$ .
+
+7.3 ACCESS TO THE DATA
+
+All data are stored on central servers. Most employees do not need access to all the data. By restricting access only to data that are useful to each employee, the risks of data misuse - whether intentional or not - are reduced. Abuse can also be prevented. Access rules and an authorisation mechanism must therefore be defined in line with the functions of each employee.
+
+Measures to be considered:
+- The information system is organised in such a way as to allow differentiated access for different users.
+- The internal organisational system defines the access rights of each employee by drawing up an access rights matrix. This matrix is regularly updated and checked as staff changes.
+- Employees authenticate themselves when the system is switched on. The more sensitive the data it processes, the stricter the authentication requirements.
+- System accesses are logged in accordance with the conditions described in the "Logging" section.
+
+7.4 REMOTE ACCESS
+
+There can be several types of remote access, and protective measures need to be considered for each situation.
+
+18 Security: Authenticating users | CNIL
+19 Check your password policy | CNIL
+20 Technologiebetrachtungen (admin.ch)
+21 Guide to biometric recognition systems (FDPIC)
+
+Access to data can be requested by an employee who wants to work from outside and wants remote access to their office computer. This type of access must be regulated according to the organisation's policy and the sensitivity of the data. A secure method of authentication must be put in place. Access to data may also be requested by an authorised third party, such as a processor. The case must be clearly defined and strong authentication must be required. Finally, above all else, fraudulent access must be prevented in all cases.
+
+The 'Network security' section provides additional information on the security of communications between a remote third party and the organisation.
+
+# Measures to be considered:
+
+- Secure access is available for people who want or need to connect remotely.
+- The chosen authentication method is strong and therefore composed of at least two modes.
+- Personal computers are protected by a firewall.
+- Under the conditions described in the 'Logging' section, accesses can be logged.
+
+# 7.5 FURTHER INFORMATION
+
+Other important aspects to consider for in-house processing:
+
+[TABLE]
+
+
+36
+
+# 8 LIFE CYCLE OF DATA
+
+If the measures described in the previous sections are taken, access to data can be considered secure, both from a physical point of view (access to central servers) and from a processing point of view (access to personal computers and applications). The next phase involves ensuring data security throughout its lifecycle. The data must remain accurate and reliable throughout the entire cycle, i.e. from the moment they are entered into the system until they are destroyed, anonymised or archived, obviously including all the processing phases they undergo.
+
+Processing can be carried out within the organisation by authorised staff. However, it may also be outsourced to third-party organisations.
+
+In addition, as part of the processing, data are regularly transferred to mobile devices such as USB memory sticks, external hard drives and so on. Finally, keeping a record of the various processing operations means that if problems arise, it is easier to understand where they came from.
+
+All these aspects and situations need to be studied in order to avoid abuses.
+
+In this section, we address the following questions:
+
+- How do you manage the input of data into the system?
+- How do you encrypt data?
+- How can you ensure the security of different data carriers?
+- How do you back up your data?
+- How can data be permanently destroyed?
+- How do you manage information security and data protection?
+- How do you monitor data processing (logging)?
+- How do you draw up processing regulations?
+
+## 8.1 DATA INPUT
+
+Entering data into the system is a delicate process. In addition to the various security problems (discussed in particular in Infrastructure and Access and processing), it is important to avoid introducing incomplete or erroneous data into the system. Once the data have been entered, processing carried out on the basis of flawed data could lead to incorrect results and inappropriate decisions.
+
+The choice of input platform, data access policy, validation and verification are all important elements in data entry.
+
+In addition, a distinction must be made between data entry into a system during the test phase and during the production phase.
+
+**Measures to be considered:**
+
+- Data are only entered by trained and authorised personnel.
+- Support mechanisms are built into the system. These mechanisms identify any missing information and carry out any plausibility checks on entries.
+- The data used for the tests is either fictitious or anonymised.
+- Data entry is logged (Logging).
+
+37
+
+## 8.2 DATA ENCRYPTION
+
+Data are usually stored on a hard disk in the form of files or in a database. One method of protecting personal data and preventing them from being read and modified in an unlawful manner is to encrypt them. Using a key, the data are transformed into an incomprehensible code. Encryption makes data unintelligible to anyone who does not possess or know the key.
+
+## Encryption levels
+
+Encryption can take place at different levels. Stored data ('at rest') should ideally be encrypted at all times. Encryption at this level protects against access from outside the organisation, for example against loss of the physical infrastructure (hard disk stolen or incorrectly erased before being thrown away).
+
+As users and applications need decrypted data to work, it is advisable to perform an additional level of encryption internally. Data can be separated into different zones, each with its own encryption and each authorising only authorised users and applications to access decrypted data. This level protects data against unauthorised internal access, for example by members of the organisation acting maliciously or whose accounts have been hacked.
+
+There is also the option of file-level encryption, where the sensitive parts of the data are encrypted separately from the rest. This provides very granular protection and means that non-sensitive data can be used without putting other data at risk, although it is more complex to implement.
+
+The appropriate level of encryption must therefore be chosen according to the intended use of the data and their sensitivity.
+
+It is also important to choose an appropriate encryption method, and particularly not to use methods that are now obsolete. The various algorithms recommended at the time of writing are, for example:
+
+- AES (with a 128- or 256-bit key) with an appropriate construction mode (CCM, GCM, or EAX) or ChaCha20 (with Poly1305) for symmetric encryption
+- RSA-OAEP, ECIES-KEM or DLIES-KEM for asymmetric encryption;
+- SHA-256, SHA-512 or SHA-3 as hash functions
+
+You can find more detailed information on the ANSSI website²²
+
+**Measures to be considered:**
+
+- The encryption algorithm and, more specifically, the length of the key are proportional to the sensitivity of the data.
+- On the same data medium, different groups of data can be encrypted with different keys.
+- The encryption keys are secure.
+- Access to keys is restricted to a limited number of employees.
+
+²² Cryptographic mechanisms | Agence nationale de la sécurité des systèmes d'information (ssi.gouv.fr)
+
+38
+
+# 8.3 MEDIA SECURITY
+
+Data are not only stored on central servers and personal computers. Numerous external media can be used to transfer information between employees or to the outside world without having to use the network. Temporary and limited back-ups are also possible on these media.
+
+Among external media, USB memory sticks, external hard disks, CD-ROMs, etc. have different functions, since they do not all have the same properties. Some are rewritable, such as USB sticks, while others are not, such as CD-ROMs. It is possible to store ever-increasing amounts of data on ever-smaller media. It is important to bear this in mind so as not to underestimate the risks associated with these media.
+
+Measures to be considered:
+
+- Employees are trained in the dangers of introducing an unknown medium (USB drive, etc.) into their computer.
+- External media containing sensitive personal data or profiles are encrypted.
+- External media must be kept under lock and key.
+- A procedure for destroying media has been put in place and the necessary tools are available.
+- A regular review of the configuration and updates is planned.
+
+# 8.4 DATA SECURITY
+
+It is essential to ensure the integrity and availability of the data contained in the system. A procedure must therefore be defined for backing up data. This means that if data are destroyed as a result of misuse or fraudulent processing, or if they are corrupted, it must be possible to recover the data in the most recent state possible. The frequency of back-ups should be proportional to the amount of processing carried out on the data each day.
+
+Measures to be considered:
+
+- A backup strategy is defined that is appropriate to the purpose of the data, their quantity and the frequency with which they are modified.
+- The backup strategy is communicated to employees.
+- Backup servers must be subject to the same security measures as central servers.
+- Data recovery is carried out by trained personnel.
+
+# 8.5 DESTRUCTION OF DATA
+
+As is clear from Article 6 paragraph 4 FADP, personal data are not intended to be stored indefinitely. Their retention period must be defined and mechanisms for their permanent destruction must be established. So simply deleting data from a hard drive is not enough to consider the data destroyed. You really must ensure that they are never accessible again. The same applies to data held on paper or mobile media. Back-up copies must also be destroyed.
+
+Measures to be considered:
+
+- A deletion strategy is defined in an appropriate manner to ensure the gradual and complete destruction of personal data, including backups, after their usefulness has expired.
+- Data are erased using special programmes that guarantee total and definitive deletion of data (by cleaning up empty spaces, for example).
+- Paper data are destroyed using a paper shredder.
+
+- CD-ROMs and other mobile media are also physically destroyed if they cannot be completely cleaned in any other way.
+
+# 8.6 SECURITY AND PROTECTION LEVELS
+
+To optimise data security, it may be useful to relate the nature of the personal data to a level of risk and to the classification of the information (e.g. 'unclassified, internal, confidential'). A classification matrix is provided below. As it is a generic instrument, this matrix will not always be appropriate for all cases; It must therefore be adapted to the specific needs of the organisation.
+
+Table 1: Matrix of measures according to confidentiality and risk linked to personal data
+
+[TABLE]
+
+(*) The numbering of copies of the document is a measure relating to the protection of information.
+
+In the sample matrix above, we use the following definitions of risk:
+
+1. Minimum risk: personal data, the misuse of which does not, as a general rule, appear to have any particular consequences for the data subject. This may include first and last names, or public information.
+
+2. **Medium risk**: personal data the misuse of which may affect the financial or personal situation of the data subject. For example, data relating to a tenant's situation, professional relationships or profiling.
+3. **High risk**: personal data the misuse of which may seriously affect the financial or personal situation of the data subject. For example, sensitive data or high-risk profiling.
+4. **Very high risk**: ultra-sensitive' personal data, the misuse of which could endanger the life of the data subject. These include, for example, addresses of police liaison officers, addresses of witnesses in certain criminal proceedings or addresses of people who are under threat because of the expression of their opinions or their religious or political affiliation.
+
+**Measures to be considered**:
+- The system is based on an adapted matrix.
+- The measures implemented are in line with the matrix.
+
+## 8.7 LOGGING
+
+It is generally useful to keep a record of all data processing. This may involve consulting data, adding new data, modifying existing data or deleting data. By keeping a record of these various activities, it is possible, in the event of problems, to trace the source of an incident (fraudulent access, unauthorised processing of data, etc.).
+
+These activities can be logged: a sequential record is made of all events relating to the information system and these log files are kept for a period appropriate to the sensitivity of the data and processing and their purposes.
+
+Article 4 DPO regulates the issue of logging. It stipulates that in the case of large-scale automated processing of sensitive data or high-risk profiling, and if preventive measures are not sufficient to guarantee data protection, the private controller and its processor must log the following events as a minimum: storage, alteration, reading, disclosure, deletion and destruction of the data.
+
+The log must provide information on the identity of the person who carried out the processing, the nature, date and time of the processing and, where applicable, the identity of the recipient of the data.
+
+Log files must meet specific requirements:
+- they must be stored in a system separate from that in which the personal data are processed;
+- they must be kept for at least one year;
+- the files must only be accessible to a restricted group of people, i.e. those responsible for verifying the application of provisions relating to the protection of personal data or for safeguarding or restoring the confidentiality, integrity, availability and traceability of data, and they may only be used for these purposes.
+
+For personal data that is generally accessible to the public, the recording, modification, deletion and destruction of data must be logged as a minimum.
+
+Logging all personal data processing requires significant investment. To make it easier to set up a logging protocol, and to help identify whether such an obligation exists, here are some answers to frequently asked questions:
+
+40
+
+- It is not expected that personal data logging will be separated from information security logging. Redundancy is therefore not necessary.
+- The obligation to log applies only to personal data in automated data processing systems. For example, manual access to a text document containing personal information does not necessarily need to be logged in accordance with Article 4 DPO. On the other hand, the execution of a script that deletes personal data in the same document must be.
+- Nevertheless, it is important to note that it may be in the controller's interest to log these activities anyway, or not to allow certain personal data to be processed on documents that have not been logged.
+- By 'generally accessible to the public', we mean data that does not require identification to access, or that is accessible by a large number of people.
+
+Further information on logging is available on our website (French²³, German²⁴, Italian²⁵).
+
+A logging protocol can also be integrated into the system on a voluntary basis. However, the need for this logging must be clear and be associated with precise objectives; this is so as to avoid simply creating additional data - and therefore additional risks - without justification. In addition, logging must be proportionate in terms of the quantity of information logged and the length of time log files are kept.
+
+**Measures to be considered:**
+- The content of log files and the length of time they are kept are proportionate to the data and the processing carried out.
+- Employees must be informed that a record is kept of the actions they perform on the data.
+- Log files are secure.
+- Access rights to logs are clearly defined and limited to certain functions within the organisation.
+- The protocol is protected against possible attacks or fraudulent access.
+
+## 8.8 PROCESSING REGULATIONS
+
+Processing regulations are an instrument provided in Articles 5 and 6 DPO. The regulations (in the form of a manual or documentation) give details of the internal organisational structure, e.g. a description of the system architecture; of data processing procedures, in particular the communication of data and the exercise of access rights; of control procedures (authorisations) and technical and organisational data security measures.
+
+The processing regulations must be drawn up by the controller and its processor. If it is mandatory, the regulations must be regularly updated and submitted to the data protection officer.
+
+## Content of the regulations and obligations
+
+Private data controllers are obliged to draw up regulations if they carry out automated processing of sensitive data on a large scale or in connection with high-risk profiling. In
+
+²³ Recommendations techniques du PFPDT relative à la journalisation prévue à l'art. 4 OPDo (PDF)
+²⁴ Technische Empfehlungen für die Protokollierung gemäss Art. 4 DSV des EDÖB (PDF)
+²⁵ Raccomandazioni tecniche dell'IFPDT per la verbalizzazione secondo l'articolo 4 OPDa (PDF)
+
+particular, the regulations must contain information on the internal organisational structure, data processing and control procedures, and measures to ensure data security (Art. 5 DPO).
+
+If the controller is a federal body (Art. 6 DPO), processing regulations are mandatory for automated processing in the following cases:
+
+a. processing sensitive data;
+b. profiling;
+c. processing personal data in terms of Article 34 paragraph 2 letter c FADP;
+d. access to personal data granted to cantons, foreign authorities, international organisations or private individuals;
+e. interconnected data sets;
+f. operating an information system or managing data sets jointly with other federal bodies.
+
+An example of processing regulations is available on the FDPIC website²⁶.
+
+26 Processing Regulations (for private persons) (DOCX)
+
+9 SHARING AND TRANSMISSION
+
+The principle of proportionality, Article 6 paragraph. 2 FADP, and Article 5 paragraph 1 letter c GDPR require that access to personal data should be limited.
+
+Article 9 FADP and Article 7 DPO contain general provisions on the use of a processor for the protection of personal data.
+
+Today's means of communication make it possible to work remotely and exchange information quickly and easily. This means that data do not simply remain within the organisation, but are often transmitted to the outside world. Contacts with third parties are regular. Data protection during transfer must also be guaranteed.
+
+Here we address the following questions:
+
+- How can you ensure sufficient security?
+- How do you encrypt a message you send to a third party?
+- How do you sign a message you send to a third party?
+- How can data carriers be transmitted securely?
+- How do you keep track of your various communications?
+- What are the specifics for transferring data abroad?
+
+## 9.1 NETWORK SECURITY
+
+Organisations send countless communications within their internal networks. This may involve employees working remotely who wish to connect to the internal network, or third parties accessing data in this way. Network and communications security must be guaranteed. Access is generally via the internet. It is therefore essential to use secure communication protocols. The TLS (Transport Layer Security) protocol, the successor to SSL (Secure Sockets Layer), enables a secure encrypted communication channel to be established between a client and a server. The algorithms and cryptographic keys are negotiated between the client and the server. TLS also enables both parties to authenticate each other using certificates. This protocol is a sub-layer of the usual communications protocols (HTTP, FTP, etc.). It is transparent to the user and its use is shown on most browsers by the display of a closed padlock.
+
+In addition, VPN (Virtual Private Network) connections provide secure access to the internal network. A VPN is used to encapsulate the encrypted data to be transmitted. It is based on strong cryptographic protocols, such as TLS, IPSec or SSTP.
+
+### Measures to be considered:
+
+- Internet communications from the internal network to the outside world must be limited to what is strictly necessary.
+- Check whether a secure communication protocol (for ex. TLS) has been properly set up for the relevant data processing.
+- Set up a VPN if employees or third parties need to connect remotely to the organisation's local network.
+- Check for software updates on a daily basis and make sure they are installed so as to maintain the highest possible level of security.
+
+43
+
+44
+
+# 9.2 MESSAGE ENCRYPTION
+
+As well as encrypting hard disks and files to prevent unwanted access to data, it is also necessary to encrypt messages to prevent a third party from listening in on the communication and being able to read, modify or delete the message.
+
+There are two methods for encrypting messages: symmetric and asymmetric encryption.
+
+Symmetric encryption works according to the diagram below:
+
+1. Alice writes a message for Bob.
+2. Alice encrypts her message using a key.
+3. Alice sends the encrypted message to Bob.
+4. Alice sends the key to Bob securely.
+5. Bob uses this key to decrypt the message.
+
+![img-1.jpeg](img-1.jpeg)
+
+Symmetric encryption is simpler to implement because it only requires a single key. However, this key must be transmitted securely.
+
+Asymmetric encryption is more complex but avoids the problems associated with key transmission. Two keys are used instead of one. Each user generates a pair of keys: one is public and available to everyone, the second is private and known only to the user. The public key is used to encrypt the message and the private key to decrypt it. This technique can also be used to sign messages (see the "Message signature" section).
+
+The procedure illustrated below is as follows:
+
+1. Alice prepares a message for Bob.
+2. Alice uses Bob's public key to encrypt the message; this ensures that only Bob - using his private key - will be able to read it.
+3. Alice sends the message to Bob.
+4. Bob uses his private key to decrypt the message.
+
+![img-2.jpeg](img-2.jpeg)
+
+Many applications today do not use a pure asymmetric encryption algorithm, but encrypt the data with a symmetric algorithm and additionally encrypt the symmetric encryption key with an asymmetric encryption algorithm. This hybrid encryption method combines the advantages of the speed of symmetric encryption and the security of asymmetric encryption.
+
+# Measures to be considered:
+
+- Decide on the most appropriate type of encryption, depending on the sensitivity of the data and the third parties that the organisation deals with.
+- If symmetric encryption is used, a secure protocol must be defined for transmitting the key (email, for example, is not secure).
+- If asymmetric encryption is chosen, a message encryption mechanism must be put in place. This should be coupled with message signature (see the "Message signature" section).
+
+All Alice has to do is check that the public key she has is really Bob's, and not that of a 'man-in-the-middle'. To do this, Bob's public key can be signed by a higher authority, whose public key can also be signed, and so on up to a level known and verifiable by Alice. Message signatures, or public keys, are explained in the next section.
+
+# 9.3MESSAGE SIGNATURE
+
+By encrypting a message (see the "Message encryption" section), it is possible to ensure that only the person in possession of the key needed to decrypt the message will be able to read it. It may also be necessary for the recipient of the message to be able to verify that the sender is who they claim to be. By signing the message, the sender can transmit this information securely.
+
+This action is usually performed before the message is encrypted using the following protocol:
+
+1. Alice writes a message.
+2. Alice extracts a fingerprint from this message. This fingerprint serves as the message's signature.
+3. Alice signs this fingerprint with her private key.
+4. She then encrypts the message using the procedure described above.
+5. Alice passes the print and the message to Bob.
+6. Bob decrypts the message.
+7. He then verifies the fingerprint with Alice's public key to ensure that she is the sender of the message.
+
+![img-3.jpeg](img-3.jpeg)
+
+# Measures to be considered:
+
+- Employees are made aware of the situations in which communication must be signed and encrypted.
+- Employees know how to encrypt and sign messages.
+
+# 9.4 TRANSMISSION OF DATA CARRIERS
+
+The transmission of mobile data carriers is a tricky problem, as it means that some of the data physically leaves the organisation and is transported to another location. It is essential that these carriers are protected during transport to prevent data becoming accessible in the event of loss or, more seriously, of theft. The more sensitive the data contained on mobile carriers, the more secure the transmission must be.
+
+# Measures to be considered:
+
+- The recipients of the carriers can be securely authenticated.
+- The carriers are securely packaged before transport.
+- If necessary, the media are encrypted.
+- A transport protocol is defined. For example, the carriers can be transported in locked suitcases.
+- The two-person principle ensures that data are delivered and received correctly.
+
+# 9.5 TRANSFER LOGGING
+
+Sending data via the network and the transport of mobile carriers can be logged. This logging mechanism makes it possible to trace the senders and recipients of the data and the way in which the carriers were transported. In the event of abuse, misuse or malicious action, this information can be used to trace the data from the sender to the problem.
+
+The considerations set out in the "Logging" section also apply to transfer logs.
+
+Measures to be considered:
+- Define a very precise logging process that records senders, recipients, the route taken and all points of interest along the way.
+- It is preferable to always entrust media transfers to the same employees.
+- Take a proportionate approach to the logging of transfers, based on their size, duration, etc.
+
+## 9.6 DISCLOSURE OF DATA ABROAD
+
+The disclosure of personal data abroad may involve significant risks: It is therefore regulated in some detail in Articles 16 to 18 FADP and 8 to 12 DPO. By default, personal data should not be transmitted abroad. Broadly speaking, there are three types of situations in which such transfers are permitted:
+
+### Approval by the Federal Council
+
+The first case is described in detail in Article 16 paragraph 1 FADP and Article 8 DPO. The Federal Council maintains a positive list of States whose data protection legislation is considered adequate. If a State is not included, it is either because its legislation is deemed insufficient or because it has not yet been examined. It should be noted that in addition to States, international organisations may also be on the list. The list can be found in Annex 1 of the DPO²⁷.
+
+### Specific instruments
+
+The second case is described in detail in Article 16 paragraph 2 FADP and Article 9 ff. DPO. If the country in question is not on the above-mentioned list, there are a number of data protection instruments that may still be used to enable data to be sent to that country. The law mentions the following instruments:
+
+- an international treaty;
+- a data protection clause in a contract between the controller or processor and its co-contractor, notice of which has previously been given to the FDPIC;
+- specific guarantees drawn up by a competent federal body and communicated to the FDPIC in advance;
+- standard data protection clauses previously approved, established or recognised by the FDPIC;
+- binding corporate rules approved in advance by the FDPIC or by a data protection authority from a country that ensures an adequate level of protection.
+
+To this list, Article 12 DPO adds codes of conduct and certifications which, under certain conditions, may form the basis for the disclosure of data abroad.
+
+### Exceptional situations
+
+The third case is described in detail in Article 17 FADP. Apart from the situations described above, disclosure abroad may be permitted in certain specific cases: These are essentially situations where the data subject is in some way involved in the disclosure, or where the disclosure is intended to protect important interests. The situations envisaged by the FADP are as follows:
+
+- if the data subject has consented to disclosure;
+
+²⁷ States, territories, specific sectors within a State and international bodies in which an adequate level of data protection is guaranteed
+
+- if the data subject has made the personal data accessible to everyone and has not expressly objected to the processing;
+- if disclosure is directly related to the conclusion or performance of a contract between the data controller and the data subject;
+- if disclosure is directly related to the conclusion or performance of a contract between the data controller and its contractual partner in the interest of the data subject;
+- if disclosure is necessary to safeguard an overriding public interest;
+- if disclosure is necessary in order to establish, exercise or enforce legal rights before a court or other competent foreign authority;
+- if disclosure is necessary to protect the life or physical integrity of the data subject or of a third party and it is not possible to obtain the data subject's consent within a reasonable time;
+- if the personal data comes from a statutory register, accessible to the public or to any person with a legitimate interest, provided that the legal conditions in this case are met.
+
+In addition, depending on the case, the data controller must, on request, inform the FDPIC of the disclosure that it makes (Art. 17 para. 2 FADP).
+
+**Measures to be considered:**
+- The requirements and risks of disclosing data abroad should be taken into account at the design stage and before any disclosure takes place.
+- Regularly check the list of countries in Annex 1 DPO.
+- If necessary, consider whether it is possible and suitable to use one of the tools mentioned above.
+
+## 9.7 USING PROCESSORS
+
+Organisations regularly use processors (subcontractors) in connection with the management of the data they process. Examples include the storage of data with third parties, the use of IT solutions provided and maintained by third-party companies (in particular via a cloud) or, more generally, entrusting processors with a specific task, such as invoicing, marketing, etc. The organisation providing the mandate must ensure that the processor is able to guarantee data protection in an appropriate manner (Art. 9 para. 2 FADP). In addition, the organisation remains responsible for processing and therefore liable to data subjects and the authorities.
+
+The data controller may only transfer personal data if this is required by law or contract. In addition, the third party may only carry out processing operations that the data controller would be entitled to carry out itself. Finally, sub-contracting must not be prohibited by a statutory or contractual obligation to maintain secrecy (Art. 9 para. 1 FADP). It should also be noted that a processor itself may only subcontract with the authorisation of the data controller (Art. 9 para. 3 FADP).
+
+**Measures to be considered:**
+- Check the reliability of the processor's services, its reputation and its expertise in data security and protection.
+- Draw up a contract with the processor that provides a framework for the processor's data processing and ensures compliance with the data controller's obligations to the
+
+48
+
+data subjects (confidentiality of data, conditions of return and destruction, incident management, access requests, etc.).
+- Provide mechanisms to ensure that the processor complies with its data protection commitments (security audits, encryption of data depending on its sensitivity, etc.).
+
+You can find additional recommendations and tools on the NCSC page²⁸.
+
+# 10 FINAL CONSIDERATIONS
+
+If you apply the technical and organisational measures presented in this guide, this will ensure that you achieve an appropriate standard of data protection. However, you must always take account of the overall context of a project, its sensitivity, the amount of data required, etc.
+
+The data controller is responsible for data protection. Addressing the issue of data protection as early as possible in the development of a project is the best way not only to manage the various risks, but also to be in a position to meet the various obligations with regard to requests that may be made by the data subjects.
+
+28 Working with external IT service providers (admin.ch)
+
+11 REFERENCES
+
+[1] Office fédérale de l'approvisionnement économique du pays OFAE, «Norme minimale pour les TIC,» 2023. [Online]. Available: https://www.bwl.admin.ch/bwl/fr/home/themen/ikt/ikt_minimalstandard.html. [Accessed 25.08.23].
+
+[2] ISO, «Normes,» [Online]. Available: https://www.iso.org/fr/standards.html. [Accessed 29.08.2023].
+
+[3] ISACA, «COBIT | Control Objectives for Information Technologies | ISACA,» [Online]. Available: https://www.isaca.org/resources/cobit. [Accessed 29.08.23].
+
+[4] Federal Office for Information Security - BSI, «Technical Guidelines,» [Online]. Available: https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/technische-richtlinien_node.html. [Accessed 29.08.23].
+
+[5] NIST, «National Institute of Standard and Technology,» [Online]. Available: https://www.nist.gov/. [Accessed 29.08.23].
+
+[6] CNIL, «Analyse d'impact relative à la protection des données - Les bases de la connaissance,» Février 2018. [Online]. Available: https://www.cnil.fr/sites/cnil/files/atoms/files/cnil-pia-3-fr-basesdeconnaissances.pdf. [Accessed 29.08.23].
+
+[7] Groupe Article 29, «Avis 05/2014 sur les Techniques d'anonymisation,» 10 avril 2014. [Online]. Available: https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf. [Accessed 29.08.23].
+
+[8] CNIL, «Guide pratique RGPD - Sécurité des données personnelles,» Mars 2023. [Online]. Available: https://www.cnil.fr/sites/cnil/files/2023-04/cnil_guide_security_des_donnees_personnelles-2023.pdf. [Accessed 29.08.23].
+
+[9] Organisation internationale de normalisation, «ISO/IEC 27002:2022 Sécurité de l'information, cybersécurité et protection de la vie privée — Mesures de sécurité de l'information,» 2022. [Online]. Available: https://www.iso.org/fr/standard/75652.html. [Accessed 29.08.23].
+
+50

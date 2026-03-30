@@ -1,0 +1,9 @@
+{
+  "extractor": "olmocr",
+  "source_id": "fdpic_technical_measures",
+  "total_pages": 50,
+  "toc_entries": 0,
+  "tables_found": 6,
+  "total_processing_time_ms": 281270.0,
+  "full_text_chars": 123421
+}

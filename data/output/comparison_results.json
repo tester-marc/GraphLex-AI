@@ -1,0 +1,182 @@
+[
+  {
+    "extractor": "pymupdf",
+    "document": "gdpr",
+    "complexity_level": 3,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": null,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 54.83
+  },
+  {
+    "extractor": "olmocr",
+    "document": "gdpr",
+    "complexity_level": 3,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": null,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 5628.21
+  },
+  {
+    "extractor": "mistral",
+    "document": "gdpr",
+    "complexity_level": 3,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": null,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.8,
+    "processing_time_per_page_ms": 45.09
+  },
+  {
+    "extractor": "pymupdf",
+    "document": "fadp",
+    "complexity_level": 1,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": null,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 34.96
+  },
+  {
+    "extractor": "olmocr",
+    "document": "fadp",
+    "complexity_level": 1,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": null,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.0,
+    "processing_time_per_page_ms": 4368.44
+  },
+  {
+    "extractor": "mistral",
+    "document": "fadp",
+    "complexity_level": 1,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": null,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 66.93
+  },
+  {
+    "extractor": "pymupdf",
+    "document": "edpb_legitimate_interest",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.0,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.8,
+    "processing_time_per_page_ms": 83.73
+  },
+  {
+    "extractor": "olmocr",
+    "document": "edpb_legitimate_interest",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.0,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.8,
+    "processing_time_per_page_ms": 7955.41
+  },
+  {
+    "extractor": "mistral",
+    "document": "edpb_legitimate_interest",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.0,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.8,
+    "processing_time_per_page_ms": 143.74
+  },
+  {
+    "extractor": "pymupdf",
+    "document": "edpb_article48",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.5,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.6,
+    "processing_time_per_page_ms": 55.58
+  },
+  {
+    "extractor": "olmocr",
+    "document": "edpb_article48",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.5,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.6,
+    "processing_time_per_page_ms": 5651.54
+  },
+  {
+    "extractor": "mistral",
+    "document": "edpb_article48",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.5,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.6,
+    "processing_time_per_page_ms": 214.07
+  },
+  {
+    "extractor": "pymupdf",
+    "document": "edpb_consent",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.3333333333333333,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.8,
+    "processing_time_per_page_ms": 69.02
+  },
+  {
+    "extractor": "olmocr",
+    "document": "edpb_consent",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.3333333333333333,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 0.8,
+    "processing_time_per_page_ms": 6670.0
+  },
+  {
+    "extractor": "mistral",
+    "document": "edpb_consent",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.3333333333333333,
+    "cross_reference_detection_rate": 1.0,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 107.08
+  },
+  {
+    "extractor": "pymupdf",
+    "document": "fdpic_technical_measures",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.5,
+    "cross_reference_detection_rate": 0.8,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 75.49
+  },
+  {
+    "extractor": "olmocr",
+    "document": "fdpic_technical_measures",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.375,
+    "cross_reference_detection_rate": 0.8,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 5625.4
+  },
+  {
+    "extractor": "mistral",
+    "document": "fdpic_technical_measures",
+    "complexity_level": 2,
+    "structure_preservation_score": 1.0,
+    "table_teds_score": 0.5,
+    "cross_reference_detection_rate": 0.8,
+    "footnote_preservation_rate": 1.0,
+    "processing_time_per_page_ms": 96.06
+  }
+]

@@ -1,0 +1,64 @@
+# This is the Docker Compose config for GraphLex AI's local development
+# It defines 2 database services:
+# - Weaviate: vector database
+# - Neo4j: graph database
+#
+# Usage:
+# to start: docker compose up -d
+# to stop: docker compose down
+# to delete all data: docker compose down -v
+#
+# after the first start or after volume deletion:
+# python -m app.retrieval ingest
+# python -m app.graph build --recreate
+# python -m app.graph build-obligations --from-cache
+#
+# Prerequisites: Docker Desktop is running, and ports 8080, 50051, 7474, and 7687 are free.
+
+services:
+  # Weaviate: vector database
+  # for storing the text chunks as 3072 dimensional embeddings (with the embedder "text-embedding-3-large")
+  # it supports metadata filtering by source doc, jurisdiction, and instrument type
+  # app code: app/retrieval/ (contains: weaviate_store.py, pipeline.py, config.py)
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.28.4
+
+    ports:
+      - "8080:8080" # REST API: used by Python weaviate-client
+      - "50051:50051" # gRPC API: used for batch ingestion performance
+
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true" # locally it doesn't need auth
+      PERSISTENCE_DATA_PATH: /var/lib/weaviate
+      DEFAULT_VECTORIZER_MODULE: none # embeddings are precomputed externally
+      CLUSTER_HOSTNAME: node1
+
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+
+  # Neo4j: graph database
+  # Nodes: Instrument, Article, Definition, Obligation
+  # Relationships: CONTAINS, REFERENCES, DEFINES, IMPOSES, CITES, EQUIVALENT_TO
+  # It is queried via Cypher
+  # app code: app/graph/ (contains: neo4j_store.py, queries.py, pipeline.py)
+    neo4j:
+    image: neo4j:5.26-community
+
+    ports:
+      - "7474:7474" # browser UI: open http://localhost:7474 in order to explore the graph
+      - "7687:7687" # bolt protocol, used by the Python neo4j driver
+
+    environment:
+      # it must match the NEO4J_PASSWORD in .env (production with AuraDB uses different password)
+      NEO4J_AUTH: neo4j/graphlex2026
+
+    volumes:
+      - neo4j_data:/data
+
+
+# named volumes
+# persist the data across restarts
+volumes:
+  weaviate_data: # vector indexes and object data
+  neo4j_data:    # graph data, indexes, transaction logs

@@ -1,0 +1,41 @@
+{
+  "articles": [
+    {"number": "6", "title": "Lawfulness of processing", "paragraph_count": 1},
+    {"number": "5", "title": "Principles relating to processing of personal data", "paragraph_count": 1},
+    {"number": "9", "title": "Processing of special categories of data", "paragraph_count": 1},
+    {"number": "10", "title": "Processing of personal data relating to criminal convictions", "paragraph_count": 1},
+    {"number": "12", "title": "Transparent information, communication and modalities", "paragraph_count": 1},
+    {"number": "13", "title": "Information to be provided at collection", "paragraph_count": 1},
+    {"number": "14", "title": "Information to be provided when data not obtained from data subject", "paragraph_count": 1},
+    {"number": "15", "title": "Right of access", "paragraph_count": 1},
+    {"number": "16", "title": "Right to rectification", "paragraph_count": 1},
+    {"number": "17", "title": "Right to erasure", "paragraph_count": 1},
+    {"number": "18", "title": "Right to restriction of processing", "paragraph_count": 1},
+    {"number": "21", "title": "Right to object", "paragraph_count": 1},
+    {"number": "22", "title": "Automated individual decision-making", "paragraph_count": 1},
+    {"number": "25", "title": "Data protection by design and by default", "paragraph_count": 1},
+    {"number": "35", "title": "Data protection impact assessment", "paragraph_count": 1}
+  ],
+  "tables": [
+    {"page": 3, "rows": 30, "cols": 2, "cells": [["I.", "Introduction"]]}
+  ],
+  "cross_references": [
+    {"source_article": "6", "target_article": "5", "page": 12},
+    {"source_article": "6", "target_article": "9", "page": 14},
+    {"source_article": "6", "target_article": "21", "page": 21},
+    {"source_article": "6", "target_article": "17", "page": 23},
+    {"source_article": "6", "target_article": "22", "page": 24},
+    {"source_article": "6", "target_article": "25", "page": 19},
+    {"source_article": "6", "target_article": "35", "page": 16},
+    {"source_article": "6", "target_article": "6", "page": 11},
+    {"source_article": "21", "target_article": "17", "page": 23},
+    {"source_article": "6", "target_article": "13", "page": 20}
+  ],
+  "footnotes": [
+    {"page": 4, "marker": "1", "text": "References to \"Member States\" made throughout this document should be understood as references to \"EEA Member States\"."},
+    {"page": 4, "marker": "2", "text": "See e.g. Opinion of Advocate General Szpunar in Case C-394/23, Mousse (ECLI:EU:C:2024:610), paras. 28-29."},
+    {"page": 4, "marker": "3", "text": "CJEU, judgment of 4 July 2023, Case C-252/21, Meta v. Bundeskartellamt (ECLI:EU:C:2023:537), para. 109."},
+    {"page": 4, "marker": "4", "text": "Ibid., para. 95. See further EDPB, Guidelines 2/2019 on the processing of personal data under Article 6(1)(b) GDPR"},
+    {"page": 5, "marker": "5", "text": "WP29, Opinion 06/2014 on the notion of legitimate interests of the data controller under Article 7 of Directive 95/46/EC (WP 217, Adopted on 9 April 2014)."}
+  ]
+}

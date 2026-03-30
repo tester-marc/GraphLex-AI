@@ -1,0 +1,363 @@
+{
+  "aggregated": [
+    {
+      "model_label": "llama-3.3-70b",
+      "avg_citation_precision": 0.453,
+      "avg_citation_recall": 0.733,
+      "calibration_accuracy": 0.875,
+      "insufficient_evidence_rate": 0.667,
+      "false_refusal_rate": 0.0,
+      "avg_latency_ms": 4919.5,
+      "avg_cost_per_query": 0.001301
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "avg_citation_precision": 0.483,
+      "avg_citation_recall": 0.8,
+      "calibration_accuracy": 0.875,
+      "insufficient_evidence_rate": 0.667,
+      "false_refusal_rate": 0.0,
+      "avg_latency_ms": 4535.9,
+      "avg_cost_per_query": 0.000692
+    }
+  ],
+  "individual": [
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "w1",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 17",
+        "Article 21",
+        "Article 6",
+        "Article 65",
+        "Article 9"
+      ],
+      "citations_expected": [
+        "Article 17"
+      ],
+      "citation_precision": 0.2,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 2914.4,
+      "cost_usd": 0.00130416,
+      "response_text": "GDPR Article 17 provides that the data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay, and the controller shall have the obligation to erase personal data without undue delay where one of the following grounds applies (GDPR Article 17, Section 3, 1):\n- the personal data are no longer necessary in relation to the purposes for which they were collected or otherwise processed (GDPR Article 17, Section 3, 1(a));\n- the data subject withdraws consent on which the processing is based according to point (a) of Article 6(1), or point (a) of Article 9(2), and where there is no other legal ground for the processing (GDPR Article 17, Section 3, 1(b));\n- the data subject objects to the processing pursuant to Article 21(1) and there are no overriding legitimate grounds for the processing (GDPR Article 17, Section 3, 1(c)).\n\nThis right is also supported by Recital 65 of the GDPR, which states that a data subject should have the right to have personal data concerning him or her erased and no longer processed where the personal data are no longer necessary in relation to the purposes for which they are collected or otherwise processed (GDPR Recital 65). \n\nSource documents: GDPR Article 17, GDPR Recital 65."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "w2",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 5",
+        "Article 6",
+        "Article 7"
+      ],
+      "citations_expected": [
+        "Article 7",
+        "Article 6"
+      ],
+      "citation_precision": 0.667,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 5259.3,
+      "cost_usd": 0.0013683999999999999,
+      "response_text": "According to the provided context passages, consent is valid for processing personal data under the GDPR if it meets certain conditions. As stated in the EDPB Guidelines on Consent (Source: EDPB Guidelines on Consent, 5), obtaining consent is subject to rigorous requirements, and the controller must observe the principles of processing enshrined in the GDPR, especially Article 5 of the GDPR, with regard to fairness, necessity, and proportionality, as well as data quality.\n\nSpecifically, the EDPB Guidelines on Consent (Source: EDPB Guidelines on Consent, 16) mention that consent would be a genuine choice as long as the data subject will not be denied services and could refuse the use of their data without any detriment (see also Article 6 GDPR, notably paragraphs (1c) and (1e)). \n\nAdditionally, the GDPR (Source: GDPR, Article 6, 1) states that processing shall be lawful only if and to the extent that at least one of the following applies, including that the data subject has given consent to the processing of his or her personal data for one or more specific purposes (Article 6(1)(a)).\n\nIt is also important to note that, as mentioned in the EDPB Guidelines on Consent (Source: EDPB Guidelines on Consent, 48), the conditions for informed consent should be met, and the data subject should be aware that their data will be processed. \n\nIn the context of children, the EDPB Guidelines on Consent (Source: EDPB Guidelines on Consent, 68) state that consent given by a holder of parental responsibility or authorized by a holder of parental responsibility for the processing of personal data given prior to the age of digital consent will remain a valid ground for processing, but the child will have the possibility to withdraw the consent himself after reaching the age of digital consent, in line with Article 7(3) of the GDPR. \n\nIn summary, valid consent for processing personal data under the GDPR requires that the data subject has given consent for specific purposes, is informed, and can refuse or withdraw consent without detriment, as outlined in Article 6(1)(a) and Article 7(3) of the GDPR."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "w3",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 11",
+        "Article 7"
+      ],
+      "citations_expected": [
+        "Article 8"
+      ],
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 4140.2,
+      "cost_usd": 0.00134816,
+      "response_text": "According to the provided context passages, the FDPIC recommends implementing technical and organisational measures to protect personal data. Specifically, Article 7 paragraphs 1 and 2 FADP (Source: FDPIC Guide to Technical Measures, 3.2.7) sets out the data controller's duty to put these measures in place from the outset to ensure that processing complies with data protection requirements.\n\nThe technical measures mentioned include message encryption (Source: FDPIC Guide to Technical Measures, 3.2.7) and pseudonymisation (Source: FDPIC Guide to Technical Measures, 3.2.7), which can provide better protection for personal data by making it less precise or less sensitive.\n\nOrganisational measures are also mentioned as being broader and relating to the environment around the system, the people who use it, and the way it is used, such as authorisation policy and register of processing and activities (Source: FDPIC Guide to Technical Measures, 11 References).\n\nAdditionally, the FDPIC guide mentions other technical measures such as anonymisation and authentication (Source: FDPIC Guide to Technical Measures, 11 References), which can help to prevent the destruction and loss of data, as well as errors, falsification, and unauthorised access.\n\nIt is also worth noting that the FADP provides tools to assist data controllers, such as codes of conduct (Art. 11 FADP, Source: FDPIC Guide to Technical Measures, 11 References), to help them meet their obligations. \n\nOverall, the FDPIC recommends a combination of technical and organisational measures to ensure optimal and appropriate protection of personal data, in line with the principles of data protection, including the principle of accuracy (Source: FDPIC Guide to Technical Measures, 11 References) and the principle of finality."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "w4",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 6"
+      ],
+      "citations_expected": [
+        "Article 6"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 5061.5,
+      "cost_usd": 0.001364,
+      "response_text": "According to GDPR Article 6, 1 (Source: GDPR), the lawful bases for processing personal data are:\n\n(a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes (GDPR Article 6, 1(a));\n(b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract (GDPR Article 6, 1(b));\n(c) processing is necessary for compliance with a legal obligation to which the controller is subject (GDPR Article 6, 1(c));\n(d) processing is necessary in order to protect the vital interests of the data subject or of another natural person (GDPR Article 6, 1(d));\n(e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller (GDPR Article 6, 1(e));\n(f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by the third party or parties to whom the data are disclosed, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject (implied by the context, explicitly mentioned in EDPB Guidelines on Legitimate Interest, 4.4, as a basis under Article 6(1)(f) GDPR).\n\nThese six lawful bases are also referenced in the EDPB Guidelines on Consent, 6, which states that Article 6 sets the conditions for a lawful personal data processing and describes six lawful bases on which a controller can rely."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "w5",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 45",
+        "Article 46",
+        "Article 48",
+        "Article 49",
+        "Article 6"
+      ],
+      "citations_expected": [
+        "Article 44",
+        "Article 45",
+        "Article 46"
+      ],
+      "citation_precision": 0.4,
+      "citation_recall": 0.667,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 7146.9,
+      "cost_usd": 0.00113608,
+      "response_text": "Under the GDPR, personal data can be transferred to a third country in the following situations:\n\n1. **Adequacy decision**: If the European Commission has decided that the third country ensures an adequate level of protection (GDPR Article 45, Section 5, 1).\n2. **Appropriate safeguards**: If the controller or processor has provided appropriate safeguards, and enforceable data subject rights and effective legal remedies for data subjects are available (GDPR Article 46, Section 5, 1).\n3. **Derogations**: In the absence of an adequacy decision or appropriate safeguards, a transfer can take place under certain conditions, such as:\n\t* Explicit consent from the data subject (GDPR Article 49, 1(a)).\n\t* The transfer is necessary for the performance of a contract between the data subject and the controller (GDPR Article 49, 1(b)).\n\t* The transfer is necessary for the conclusion or performance of a contract between the controller and another party, in the interest of the data subject (GDPR Article 49, 1(c)).\n\nAdditionally, if there is an applicable international agreement in place, the transfer may be based on Article 6(1)(c) in conjunction with Article 6(3) (EDPB Guidelines on Article 48 Transfers, 5.1 Compliance with Article 6 GDPR).\n\nSource documents: GDPR Articles 45, 46, 49, and EDPB Guidelines on Article 48 Transfers."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "u1",
+      "query_category": "under_evidenced",
+      "evidence_sufficient": false,
+      "citations_found": [
+        "Article 60",
+        "Article 61",
+        "Article 63"
+      ],
+      "citations_expected": [],
+      "citation_precision": 0.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": true,
+      "calibration_correct": true,
+      "latency_ms": 8618.5,
+      "cost_usd": 0.00110528,
+      "response_text": "Insufficient evidence in the provided context to answer this question. The context passages provided only outline the potential penalties and fines that can be imposed for violating the Swiss FADP, such as a fine not exceeding 250,000 francs for various violations (e.g., FADP Art. 60, Art. 61, Art. 63), but do not provide specific information on penalties imposed by the Swiss FDPIC in 2024. The passages appear to be excerpts from the Swiss FADP itself, detailing the regulatory framework, rather than a report of actual enforcement actions taken by the FDPIC in a specific year. To answer this question, information on actual enforcement actions and penalties imposed by the FDPIC in 2024 would be required, which is not present in the provided context."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "u2",
+      "query_category": "under_evidenced",
+      "evidence_sufficient": false,
+      "citations_found": [
+        "Article 12",
+        "Article 22",
+        "Article 5",
+        "Article 51"
+      ],
+      "citations_expected": [],
+      "citation_precision": 0.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": true,
+      "calibration_correct": true,
+      "latency_ms": 2734.3,
+      "cost_usd": 0.0012610400000000002,
+      "response_text": "Insufficient evidence in the provided context to answer this question. \n\nThe context passages provided discuss automated individual decision-making, including profiling (GDPR Article 22), the right not to be subject to a decision based solely on automated processing (GDPR Article 22, Section 1), and the exceptions to this right (GDPR Article 22, Section 2). They also touch upon the processing of children's personal data (EDPB Guidelines on Legitimate Interest, 1. Processing of children’s personal data) and the protection of sensitive personal data (GDPR Recital 51). However, none of these passages specifically address the regulation of personal data for training artificial intelligence models.\n\nTo answer this question, information on GDPR provisions related to artificial intelligence, such as data minimization (GDPR Article 5(1)(c)), purpose limitation (GDPR Article 5(1)(b)), and transparency (GDPR Article 12), would be necessary. Additionally, guidance from the European Data Protection Board (EDPB) or other regulatory bodies on the use of personal data in AI model training would be relevant. Without such information, it is not possible to provide a detailed answer on how the GDPR regulates the use of personal data for training artificial intelligence models."
+    },
+    {
+      "model_label": "llama-3.3-70b",
+      "query_id": "u3",
+      "query_category": "under_evidenced",
+      "evidence_sufficient": false,
+      "citations_found": [
+        "Article 22",
+        "Article 6"
+      ],
+      "citations_expected": [],
+      "citation_precision": 0.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": false,
+      "latency_ms": 3480.7,
+      "cost_usd": 0.0015241599999999999,
+      "response_text": "According to the provided context passages, the EDPB's guidelines on automated individual decision-making and profiling under Article 22 GDPR (Source: EDPB Guidelines on Legitimate Interest, 6. Automated individual decision-making, including profiling) state that:\n\n* Automated individual decision-making, including profiling, should not take place unless one of the exceptions listed in Article 22(2) GDPR applies (Source: EDPB Guidelines on Legitimate Interest, 6. Automated individual decision-making, including profiling).\n* The processing will be lawful only if the controller is able to identify a valid legal basis for the processing in Article 6(1) GDPR (Source: EDPB Guidelines on Legitimate Interest, 6. Automated individual decision-making, including profiling).\n* The guidelines also mention the importance of safeguards ensuring fairness, non-discrimination, and accuracy in the profiling process (Source: EDPB Guidelines on Legitimate Interest, 6. Automated individual decision-making, including profiling).\n\nAdditionally, the EDPB refers to its Guidelines on Automated individual decision-making and Profiling for the purposes of Regulation 2016/679 (WP251rev.01) for further guidance on Article 22 GDPR (Source: EDPB Guidelines on Legitimate Interest, 6. Automated individual decision-making, including profiling).\n\nIt is also worth noting that Article 22 GDPR itself states that the data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her, unless one of the exceptions in Article 22(2) applies (Source: GDPR, Article 22). The exceptions include:\n(a) necessity for entering into or performance of a contract (GDPR Article 22(2)(a));\n(b) authorization by Union or Member State law with suitable measures to safeguard the data subject's rights and freedoms (GDPR Article 22(2)(b));\n(c) explicit consent from the data subject (GDPR Article 22(2)(c))."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "w1",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 17",
+        "Article 21",
+        "Article 6",
+        "Article 65"
+      ],
+      "citations_expected": [
+        "Article 17"
+      ],
+      "citation_precision": 0.25,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 5816.4,
+      "cost_usd": 0.00064665,
+      "response_text": "GDPR Article 17 provides the data subject with the right to obtain from the controller the erasure of personal data concerning them without undue delay, under specific conditions. This right applies where one of the following grounds is met: (a) the personal data are no longer necessary for the purposes for which they were collected or otherwise processed; (b) the data subject withdraws consent and there is no other legal ground for processing; or (c) the data subject objects to processing pursuant to Article 21(1), and there are no overriding legitimate grounds for the processing (GDPR Article 17(1)). \n\nThe right also extends to cases where processing was based on legitimate interest under Article 6(1)(f), particularly if the data subject successfully objects under Article 21 GDPR, or if the controller unduly relied on that legal basis (EDPB Guidelines on Legitimate Interest, para. 76). Recital 65 reinforces that this “right to be forgotten” is relevant where retention infringes the Regulation, such as when consent is withdrawn or processing is unlawful. \n\nThe obligation to erase applies regardless of whether the processing was based on consent, legitimate interest, or other lawful grounds, provided one of the Article 17(1) conditions is satisfied. The controller must act without undue delay upon receipt of a valid erasure request (GDPR Article 17(1)).\n\nSource: GDPR Article 17, Recital 65, EDPB Guidelines on Legitimate Interest."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "w2",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 5",
+        "Article 6",
+        "Article 7"
+      ],
+      "citations_expected": [
+        "Article 7",
+        "Article 6"
+      ],
+      "citation_precision": 0.667,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 4708.4,
+      "cost_usd": 0.0007791,
+      "response_text": "Under the GDPR, consent is a valid legal basis for processing personal data only if it meets the stringent requirements set out in Article 7 and reinforced by the EDPB Guidelines. Consent must be freely given, specific, informed, and unambiguous, with a clear affirmative action indicating agreement (GDPR Article 6(1)(a); EDPB Guidelines on Consent, 5). \n\nConsent is not considered freely given where there is a significant imbalance of power, such as in employment or public school contexts, as refusal may lead to detrimental consequences (EDPB Guidelines on Consent, 16). For example, a public school may seek consent for photograph use only if students are not denied education or services for refusal (EDPB Guidelines on Consent, 17). Similarly, employer requests for consent are unlikely to be valid due to dependency (EDPB Guidelines on Consent, 16).\n\nConsent must also be informed: the data subject must understand the nature and consequences of the processing (EDPB Guidelines on Consent, 97). For sensitive data or high-risk processing, explicit consent may be required, which can be demonstrated through mechanisms like electronic signatures or two-stage verification (EDPB Guidelines on Consent, 97–98).\n\nImportantly, even when consent is obtained, the controller must still comply with all GDPR principles, including fairness, necessity, proportionality, and data minimisation under Article 5 (EDPB Guidelines on Consent, 5). Consent does not legitimise excessive or unnecessary data collection.\n\nAdditionally, data subjects have the right to withdraw consent at any time, as per Article 7(3), and controllers must inform them of this right (EDPB Guidelines on Consent, 149). For children, parental consent may be valid prior to the age of digital consent, but the child must later be informed of their right to withdraw it themselves (EDPB Guidelines on Consent, 149).\n\nThus, valid consent under the GDPR requires all these cumulative conditions to be satisfied."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "w3",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 10",
+        "Article 11",
+        "Article 12",
+        "Article 7"
+      ],
+      "citations_expected": [
+        "Article 8"
+      ],
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 4432.5,
+      "cost_usd": 0.00069225,
+      "response_text": "The FDPIC recommends a combination of technical and organisational measures to protect personal data, as outlined in the provided context.\n\nTechnically, the FDPIC highlights measures that directly affect data content to enhance protection, such as **encryption** and **pseudonymisation** (FDPIC Guide, [4]). These techniques reduce the sensitivity or precision of data, aligning with the principle of data minimisation under Article 7(1) and (2) FADP, which requires data controllers to implement such measures from the outset to ensure compliance with data protection requirements ([4]).\n\nOrganisational measures, on the other hand, relate to the broader environment surrounding data processing. These include **authorisation policies**, **registers of processing activities**, and other procedural safeguards designed to prevent unauthorised access, data loss, or errors (FDPIC Guide, [2]). Additionally, the role of the **data protection officer (DPO)**, defined under Article 10 FADP and further detailed in Articles 23–28 DPO, is critical in advising controllers and ensuring regulatory compliance ([3]).\n\nThe FDPIC also mentions **codes of conduct** under Article 11 FADP and Article 12 DPO as tools to support compliance through sector-specific best practices ([2]). These measures must be implemented throughout the entire lifecycle of personal data and applied at all levels of the information system ([2]).\n\nIn summary, the FDPIC recommends technical measures like encryption and pseudonymisation, alongside organisational measures such as access controls, record-keeping, DPO appointment, and adherence to codes of conduct, all grounded in the obligations of the FADP."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "w4",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 6"
+      ],
+      "citations_expected": [
+        "Article 6"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 5024.6,
+      "cost_usd": 0.0007458,
+      "response_text": "Under GDPR Article 6(1), personal data processing is lawful only if at least one of the following six bases applies:\n\n(a) the data subject has given consent to the processing for one or more specific purposes (GDPR Article 6(1)(a));  \n(b) processing is necessary for the performance of a contract to which the data subject is party or to take steps at the data subject’s request prior to entering into a contract (GDPR Article 6(1)(b));  \n(c) processing is necessary for compliance with a legal obligation to which the controller is subject (GDPR Article 6(1)(c));  \n(d) processing is necessary to protect the vital interests of the data subject or another natural person (GDPR Article 6(1)(d));  \n(e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller (GDPR Article 6(1)(e));  \n(f) processing is necessary for the purposes of the legitimate interests pursued by the controller or a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject (GDPR Article 6(1)(f)).\n\nNotably, Article 6(1)(f) does not apply to processing by public authorities in the performance of their tasks, unless the processing is unrelated to their official functions (EDPB Guidelines on Legitimate Interest, para. 98–99). Controllers must establish a lawful basis prior to processing and cannot rely on consent while secretly using another basis, as this would be unfair to data subjects (EDPB Guidelines on Consent, para. 122–123). Each basis must be specifically tied to a processing purpose (EDPB Guidelines on Consent, para. 121)."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "w5",
+      "query_category": "well_evidenced",
+      "evidence_sufficient": true,
+      "citations_found": [
+        "Article 44",
+        "Article 45",
+        "Article 46",
+        "Article 48",
+        "Article 49",
+        "Article 6"
+      ],
+      "citations_expected": [
+        "Article 44",
+        "Article 45",
+        "Article 46"
+      ],
+      "citation_precision": 0.5,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": true,
+      "latency_ms": 5180.2,
+      "cost_usd": 0.00080025,
+      "response_text": "Under the GDPR, personal data may be transferred to a third country only if one of the conditions set out in Chapter V is met (GDPR Article 44). The primary legal bases for such transfers are:\n\n1. **An adequacy decision** by the European Commission under GDPR Article 45(3), which determines that the third country, territory, or sector ensures an adequate level of protection. In such cases, no further authorisation or safeguards are required (GDPR Article 45(1)).\n\n2. **Appropriate safeguards** under GDPR Article 46, such as binding corporate rules (BCRs), standard contractual clauses (SCCs), or approved codes of conduct, provided that enforceable data subject rights and effective legal remedies are available (GDPR Article 46(1)).\n\n3. **Derogations under GDPR Article 49**, which permit transfers in specific situations even in the absence of an adequacy decision or appropriate safeguards. These include:  \n   - Explicit consent of the data subject after being informed of the risks (Article 49(1)(a));  \n   - Necessity for the performance of a contract with the data subject (Article 49(1)(b));  \n   - Other limited exceptions such as important public interest grounds or establishment of legal claims (Article 49(1)(c)–(f)).\n\nAdditionally, where a third-country public authority makes a direct request for data under an applicable international agreement (e.g., a mutual legal assistance treaty), Article 48 implies that such requests must not be complied with unless based on an international agreement that provides for mutual legal cooperation — and even then, transfers must still comply with Article 6(1)(c) and Article 6(3) GDPR, meaning a lawful basis under Article 6 must exist (EDPB Guidelines on Article 48 Transfers, 5.1).\n\nThus, any transfer must not only satisfy Chapter V conditions but also comply with the general lawfulness requirements of Article 6 GDPR (EDPB Guidelines on Article 48 Transfers, 5.1)."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "u1",
+      "query_category": "under_evidenced",
+      "evidence_sufficient": false,
+      "citations_found": [
+        "Article 51",
+        "Article 59",
+        "Article 60",
+        "Article 61",
+        "Article 63"
+      ],
+      "citations_expected": [],
+      "citation_precision": 0.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": true,
+      "calibration_correct": true,
+      "latency_ms": 2215.2,
+      "cost_usd": 0.00047955000000000003,
+      "response_text": "Insufficient evidence in the provided context to answer this question.\n\nThe provided context passages detail the legal framework for penalties under the Swiss Federal Act on Data Protection (FADP), including maximum fines of up to 250,000 CHF for wilful violations (e.g., FADP Art. 60 for failure to provide information, Art. 61 for inadequate data security or cross-border transfers, Art. 63 for non-compliance with FDPIC rulings). They also outline administrative measures the FDPIC may order (Art. 51) and fee structures (Art. 59). However, none of the passages contain any information about specific penalties actually imposed by the FDPIC in 2024, such as case names, fine amounts issued, or enforcement actions taken during that year. To answer the question, data on actual 2024 enforcement decisions by the FDPIC would be required, which is not included in the provided context."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "u2",
+      "query_category": "under_evidenced",
+      "evidence_sufficient": false,
+      "citations_found": [
+        "Article 22",
+        "Article 51",
+        "Article 71"
+      ],
+      "citations_expected": [],
+      "citation_precision": 0.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": true,
+      "calibration_correct": true,
+      "latency_ms": 4721.3,
+      "cost_usd": 0.0005694000000000001,
+      "response_text": "The provided context does not explicitly address how the GDPR regulates the use of personal data for training artificial intelligence (AI) models. While the passages discuss automated decision-making (GDPR Article 22), profiling (Recital 71), and sensitive data (Recital 51), none directly mention training AI models as a distinct processing activity or outline specific requirements for using personal data in this context.\n\nArticle 22 and Recital 71 regulate decisions based solely on automated processing, including profiling, but do not cover the prior stage of training AI models unless such training leads to automated decisions producing legal or similarly significant effects. Recital 51 addresses special categories of personal data, which may be relevant if training data includes sensitive information, but again, not in the context of AI training per se.\n\nAdditionally, while EDPB Guidelines reference legitimate interest and children’s data, they do not extend to AI model training as a regulated activity under the GDPR.\n\nTherefore, based on the provided context, **insufficient evidence exists to answer how the GDPR specifically regulates the use of personal data for training artificial intelligence models**. The context lacks provisions addressing data collection for training, transparency obligations for training datasets, or specific safeguards for AI development under Articles 5, 6, or 9 GDPR."
+    },
+    {
+      "model_label": "qwen3-80b-a3b",
+      "query_id": "u3",
+      "query_category": "under_evidenced",
+      "evidence_sufficient": false,
+      "citations_found": [
+        "Article 21",
+        "Article 22",
+        "Article 6",
+        "Article 71"
+      ],
+      "citations_expected": [],
+      "citation_precision": 0.0,
+      "citation_recall": 1.0,
+      "expressed_uncertainty": false,
+      "calibration_correct": false,
+      "latency_ms": 4188.6,
+      "cost_usd": 0.0008223,
+      "response_text": "The EDPB’s guidelines on automated individual decision-making and profiling under GDPR Article 22 emphasize that data subjects have a general right not to be subject to decisions based solely on automated processing, including profiling, if such decisions produce legal effects or similarly significantly affect them (EDPB Guidelines on Legitimate Interest, [1]). This is a prohibitive principle under Article 22(1) GDPR, which applies regardless of whether the data subject invokes it individually ([1]). \n\nSuch processing is only lawful if one of the exceptions in Article 22(2) applies: (a) necessary for entering into or performing a contract; (b) authorized by Union or Member State law with suitable safeguards; or (c) based on the data subject’s explicit consent ([3]). Even when an exception applies, the processing must still have a valid legal basis under Article 6(1) GDPR ([1]).\n\nThe EDPB further notes that profiling — defined as any automated processing evaluating personal aspects such as performance at work, economic situation, health, preferences, reliability, behavior, or location — falls under this prohibition when it leads to significant effects, such as automated credit denials or e-recruiting without human intervention (Recital 71 GDPR, cited in [2]). \n\nAdditionally, the EDPB stresses the need for safeguards ensuring fairness, non-discrimination, and accuracy in profiling processes ([2]). For detailed interpretation, the EDPB refers to its earlier Guidelines on Automated Individual Decision-Making and Profiling (WP251 rev.01, adopted 6 February 2018) ([2]). \n\nThe EDPB also underscores that Article 22 protections are independent of other rights, such as the right to object under Article 21, and must be assessed separately ([5]). \n\nThus, under EDPB guidance, automated decision-making is prohibited unless strictly justified under Article 22(2), and even then, must comply with broader GDPR principles including fairness and accountability."
+    }
+  ]
+}

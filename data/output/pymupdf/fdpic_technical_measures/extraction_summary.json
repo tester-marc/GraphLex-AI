@@ -1,0 +1,9 @@
+{
+  "extractor": "pymupdf",
+  "source_id": "fdpic_technical_measures",
+  "total_pages": 50,
+  "toc_entries": 87,
+  "tables_found": 38,
+  "total_processing_time_ms": 3752.38,
+  "full_text_chars": 129271
+}

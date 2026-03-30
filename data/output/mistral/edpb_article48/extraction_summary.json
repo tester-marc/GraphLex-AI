@@ -1,0 +1,9 @@
+{
+  "extractor": "mistral",
+  "source_id": "edpb_article48",
+  "total_pages": 13,
+  "toc_entries": 0,
+  "tables_found": 1,
+  "total_processing_time_ms": 2593.29,
+  "full_text_chars": 32683
+}

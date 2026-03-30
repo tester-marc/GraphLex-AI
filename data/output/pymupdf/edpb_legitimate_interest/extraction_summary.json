@@ -1,0 +1,9 @@
+{
+  "extractor": "pymupdf",
+  "source_id": "edpb_legitimate_interest",
+  "total_pages": 37,
+  "toc_entries": 37,
+  "tables_found": 2,
+  "total_processing_time_ms": 3058.82,
+  "full_text_chars": 147272
+}
