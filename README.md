@@ -76,7 +76,7 @@ Four comparisons were conducted, each selecting a production model:
 
 ```bash
 git clone https://github.com/tester-marc/GraphLex-AI.git
-cd graphlex-ai
+cd GraphLex-AI
 pip install -r requirements.txt
 ```
 
