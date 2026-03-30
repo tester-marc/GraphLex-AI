@@ -24,7 +24,7 @@ Seven-layer pipeline orchestrated with LangGraph:
 ```
 Audio ──► ffmpeg ──► Whisper ──┐
                                ├──► Interpret ──► Retrieve (Weaviate) ──► Expand (Neo4j) ──► Generate (Qwen3) ──► Answer
-Text ─────────────────────────┘
+Text ──────────────────────────┘
 ```
 
 | Layer | Purpose | Technology |
@@ -75,7 +75,7 @@ Four comparisons were conducted, each selecting a production model:
 ### Install
 
 ```bash
-git clone https://github.com/<your-username>/graphlex-ai.git
+git clone https://github.com/tester-marc/GraphLex-AI.git
 cd graphlex-ai
 pip install -r requirements.txt
 ```
